@@ -1,0 +1,7 @@
+admin
+email: 1234@gmail.com
+pass: 1234
+
+user
+email: hahaja1029@gmail.com
+pass: 1234
