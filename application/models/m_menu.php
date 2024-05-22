@@ -2,6 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class M_menu extends CI_Model
 {
+    public function menu()
+    {
+        $this->db->where('id !=', 1);
+        return $this->db->get('user_menu')->result_array();
+    }
+
+
     public function get_menu($role_id)
     {
         $queryMenu = "SELECT `user_menu`.`id`, `menu` FROM `user_menu` JOIN `user_access_menu` 

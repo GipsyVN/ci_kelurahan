@@ -3,13 +3,13 @@
 
     <!-- Page Heading -->
     <!-- Buat Konten Disini -->
-    <h1 class="h3 mb-4 text-gray-800">Dashboard<?php //$title ?></h1>
+    <h1 class="h3 mb-4 text-gray-800"><?php echo $title ?></h1>
 
     <div class="row">
         <div class="col-lg-6">
             <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>') ?>
             <?= $this->session->flashdata('message') ?>
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">Tambah User</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">Tambah Role</a>
 
             <table class="table table-hover">
                 <thead>
@@ -26,6 +26,8 @@
                             <th scope="row"><?= $i++ ?></th>
                             <td><?= $role['role'] ?></td>
                             <td>
+                                <a href="<?= base_url('admin/roleaccess/') . $role['id']; ?>"
+                                    class="badge badge-pill badge-warning">access</a>
                                 <a href="" class="badge badge-pill badge-success">edit</a>
                                 <a href="" class="badge badge-pill badge-danger">hapus</a>
                             </td>
@@ -48,15 +50,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Role</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php //echo base_url() ?>" method="post">
+            <form action="<?php echo base_url('admin/role') ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="user" name="user" placeholder="Nama Lengkap User">
+                        <input type="text" class="form-control" id="role" name="role" placeholder="Nama Role">
                     </div>
                 </div>
                 <div class="modal-footer">
