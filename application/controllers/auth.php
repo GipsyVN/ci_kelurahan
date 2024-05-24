@@ -10,6 +10,8 @@ class Auth extends CI_Controller
     }
     public function index()
     {
+        $this->__defaultPage();
+
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
@@ -20,7 +22,6 @@ class Auth extends CI_Controller
         } else {
             $this->_login();
         }
-        $this->__defaultPage();
     }
 
     private function _login()
@@ -67,6 +68,8 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+        $this->__defaultPage();
+
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'is_unique' => 'Email ini sudah terdaftar!'
@@ -100,7 +103,6 @@ class Auth extends CI_Controller
           </div>');
             redirect('auth');
         }
-        $this->__defaultPage();
 
     }
 
