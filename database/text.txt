@@ -1,6 +1,6 @@
 admin
 email: 1234@gmail.com
-pass: 1234
+pass: admin
 
 user
 email: hahaja1029@gmail.com

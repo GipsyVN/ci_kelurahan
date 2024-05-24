@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 09:17 AM
+-- Generation Time: May 24, 2024 at 08:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(1, '1234', '1234@gmail.com', 'default.jpg', '$2y$10$LjMJ8IV8doeH8Cjz/9Qve.4d2MbOR7p46vhJZtwL.5dBt8yCFsggK', 1, 1, 1715404860),
+(1, '1234', '1234@gmail.com', 'default.jpg', '$2y$10$fU3xAgk0i6zMoe6WrDDeyOG3lfVvJ295TQPJu5iXvKgD2HZVVP/rW', 1, 1, 1715404860),
 (2, 'Hajaja', 'hahaja1029@gmail.com', 'default.jpg', '$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi', 2, 1, 1715408088);
 
 -- --------------------------------------------------------
@@ -64,8 +64,9 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 2, 2);
+(3, 2, 2),
+(9, 1, 3),
+(10, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
 (2, 2, 'My Profile', 'user', 'fas fa-fw fa-user', 1),
 (3, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
-(5, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
+(5, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
+(6, 2, 'Ubah Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
 
 --
 -- Indexes for dumped tables
@@ -179,7 +181,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -197,7 +199,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
