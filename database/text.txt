@@ -3,5 +3,5 @@ email: 1234@gmail.com
 pass: admin
 
 user
-email: hahaja1029@gmail.com
-pass: 1234
+email: lihat database
+pass: 1234 (semua)
