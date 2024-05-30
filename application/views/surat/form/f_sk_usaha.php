@@ -3,11 +3,11 @@
 
     <!-- Page Heading -->
     <!-- Buat Konten Disini -->
-    <h1 class="h3 mb-4 text-gray-800">Dashboard<?php //$title ?></h1>
+    <h1 class="h3 mb-4 text-gray-800"><?php echo $title ?></h1>
 
     <div class="row">
         <div class="col">
-            <form action="<?= base_url(''); ?>" method="post">
+            <form action="<?= base_url('surat/test'); ?>" method="post">
                 <div class="form-group row">
                     <label for="noSurat" class="col-sm-2 col-form-label">No Surat</label>
                     <div class="col-sm-9 mb-3">

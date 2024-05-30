@@ -151,4 +151,13 @@ class Surat extends CI_Controller
             $this->load->view('templetes/footer');
         }
     }
+
+    public function test()
+    {
+        $data = [
+            'date' => $this->input->post('tang_lahir')
+        ];
+
+        echo $data['date'];
+    }
 }
