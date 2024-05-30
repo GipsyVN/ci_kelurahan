@@ -6,7 +6,7 @@
         <ul>
             <!-- Looping jenis surat berdasarkan role -->
             <?php foreach ($surat as $s): ?>
-                <li><a href="<?= base_url() ?>"><img
+                <li><a href="<?= base_url('surat/formSurat/') . $s['id']; ?>"><img
                             src="<?= base_url('assets/img/gb_surat.png') ?>" /><br /><?= $s['jenis'] ?></a></li>
             <?php endforeach; ?>
         </ul>

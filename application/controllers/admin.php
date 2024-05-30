@@ -48,7 +48,7 @@ class Admin extends CI_Controller
         $email = $this->session->userdata('email'); //Wajib ada
         $roleId = $this->session->userdata('role_id'); //Wajib ada
         $data['title'] = 'Role Access';
-        $data['user'] = $this->m_user->get_user($email); //Wajib ada
+        $data['user'] = $this->m_user->get_user($email); //Wajib ada-
         $data['menus'] = $this->m_menu->get_menu($roleId); //Wajib ada
         $data['menu'] = $this->m_menu->menu(); //Menus != Menu, menus untuk sidebar sedangkan menu untuk content admin/roleaccess
         $data['roles'] = $this->m_role->getRoleAccess($role_id);
