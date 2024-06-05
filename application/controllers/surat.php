@@ -72,11 +72,11 @@ class Surat extends CI_Controller
             $this->load->view('surat/form/test');
             $this->load->view('templetes/footer');
         } else if ($surat_id == 6) {
-            $this->load->view('templetes/header', $data);
-            $this->load->view('templetes/sidebar', $data);
-            $this->load->view('templetes/topbar', $data);
+            // $this->load->view('templetes/header', $data);
+            // $this->load->view('templetes/sidebar', $data);
+            // $this->load->view('templetes/topbar', $data);
             $this->load->view('surat/form/test');
-            $this->load->view('templetes/footer');
+            // $this->load->view('templetes/footer');
         } else if ($surat_id == 7) {
             $this->load->view('templetes/header', $data);
             $this->load->view('templetes/sidebar', $data);
@@ -93,7 +93,7 @@ class Surat extends CI_Controller
             $this->load->view('templetes/header', $data);
             $this->load->view('templetes/sidebar', $data);
             $this->load->view('templetes/topbar', $data);
-            $this->load->view('surat/form/test');
+            $this->load->view('surat/form/f_sk_belum_ada_rumah');
             $this->load->view('templetes/footer');
         } else if ($surat_id == 10) {
             $this->load->view('templetes/header', $data);
@@ -105,7 +105,7 @@ class Surat extends CI_Controller
             $this->load->view('templetes/header', $data);
             $this->load->view('templetes/sidebar', $data);
             $this->load->view('templetes/topbar', $data);
-            $this->load->view('surat/form/test');
+            $this->load->view('surat/form/f_sk_belum_nikah');
             $this->load->view('templetes/footer');
         } else if ($surat_id == 12) {
             $this->load->view('templetes/header', $data);

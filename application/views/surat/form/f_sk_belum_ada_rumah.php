@@ -69,30 +69,6 @@
                         <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
-                    <label for="status" class="col-sm-2 col-form-label">Status Usaha</label>
-                    <div class="col-sm-9 mb-3">
-                        <div class="form-check-inline mr-5 mt-2">
-                            <input class="mr-2" type="radio" id="buka" name="status" value="Beroperasi"
-                                onclick="toggleForm()">
-                            <label class="form-check-label" for="buka">Beroperasi</label>
-                        </div>
-                        <div class="form-check-inline mr-3 mt-2">
-                            <input class="mr-2" type="radio" id="tutup" name="status" value="Tidak Beroperasi"
-                                onclick="toggleForm()">
-                            <label class="form-check-label" for="tutup">Tidak Beroperasi</label>
-                        </div>
-                        <?= form_error('status', '<small class="text-danger pl-3">', '</small>') ?>
-                    </div>
-
-                    <!-- Tidak Beroperasi -->
-                    <label for="namaUsaha" class="col-sm-2 col-form-label">Nama Usaha</label>
-                    <div class="col-sm-9 mb-3">
-                        <input type="text" class="form-control" id="namaUsaha" name="namaUsaha"
-                            value="<?= set_value('namaUsaha') ?>">
-                        <?= form_error('namaUsaha', '<small class="text-danger pl-3">', '</small>') ?>
-                    </div>
-
-                    <!-- Beroperasi -->
                     <label for="noSurat" class="col-sm-2 col-form-label">SK dari RT</label>
                     <div class="col-sm-9 mb-3">
                         <input type="text" class="form-control" id="noSurat" name="noSurat"
@@ -107,19 +83,6 @@
                         <?= form_error('tang_surat', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
-                    <label for="j_usaha" class="col-sm-2 col-form-label">Jenis Usaha</label>
-                    <div class="col-sm-9 mb-3">
-                        <input type="text" class="form-control" id="j_usaha" name="j_usaha"
-                            value="<?= set_value('j_usaha') ?>">
-                        <?= form_error('j_usaha', '<small class="text-danger pl-3">', '</small>') ?>
-                    </div>
-
-                    <label for="a_usaha" class="col-sm-2 col-form-label">Alamat Tempat Usaha</label>
-                    <div class="col-sm-9">
-                        <textarea type="text" class="form-control" id="alamat" name="alamat"
-                            value="<?= set_value('alamat') ?>"></textarea>
-                        <?= form_error('a_usaha', '<small class="text-danger pl-3">', '</small>') ?>
-                    </div>
                 </div>
                 <div class="form-group row justify-content-end">
                     <div class="col-sm-10">

@@ -40,4 +40,27 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	// Bemlum berfumgsi
+	function toggleForm() {
+		const status = document.querySelector('input[name="status"]:checked').value;
+		const operatingFields = document.querySelectorAll('.operating-field');
+		const nonOperatingFields = document.querySelectorAll('.non-operating-field');
+		
+		if (status === 'Beroperasi') {
+			operatingFields.forEach(field => field.style.display = 'block');
+			nonOperatingFields.forEach(field => field.style.display = 'none');
+		} else {
+			operatingFields.forEach(field => field.style.display = 'none');
+			nonOperatingFields.forEach(field => field.style.display = 'block');
+		}
+	}
+
+	window.onload = function() {
+		// Sembunyikan semua form tambahan saat halaman dimuat
+		const operatingFields = document.querySelectorAll('.operating-field');
+		const nonOperatingFields = document.querySelectorAll('.non-operating-field');
+		operatingFields.forEach(field => field.style.display = 'none');
+		nonOperatingFields.forEach(field => field.style.display = 'none');
+	}
 });
