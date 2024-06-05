@@ -8,25 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script>
         function toggleForm() {
-            const status = document.querySelector('input[name="status"]:checked').value;
-            const operatingFields = document.querySelectorAll('.operating-field');
-            const nonOperatingFields = document.querySelectorAll('.non-operating-field');
+            var beroperasi = document.getElementById('buka');
+            var tidakBeroperasi = document.getElementById('tutup');
+            var divBeroperasi = document.getElementById('divBeroperasi');
+            var divTidakBeroperasi = document.getElementById('divTidakBeroperasi');
 
-            if (status === 'Beroperasi') {
-                operatingFields.forEach(field => field.style.display = 'block');
-                nonOperatingFields.forEach(field => field.style.display = 'none');
+            if (beroperasi.checked) {
+                divBeroperasi.style.display = 'block';
+                divTidakBeroperasi.style.display = 'none';
+            } else if (tidakBeroperasi.checked) {
+                divBeroperasi.style.display = 'none';
+                divTidakBeroperasi.style.display = 'block';
             } else {
-                operatingFields.forEach(field => field.style.display = 'none');
-                nonOperatingFields.forEach(field => field.style.display = 'block');
+                divBeroperasi.style.display = 'none';
+                divTidakBeroperasi.style.display = 'none';
             }
-        }
-
-        window.onload = function () {
-            // Sembunyikan semua form tambahan saat halaman dimuat
-            const operatingFields = document.querySelectorAll('.operating-field');
-            const nonOperatingFields = document.querySelectorAll('.non-operating-field');
-            operatingFields.forEach(field => field.style.display = 'none');
-            nonOperatingFields.forEach(field => field.style.display = 'none');
         }
     </script>
 </head>
@@ -53,7 +49,7 @@
                         </div>
 
                         <!-- Tidak Beroperasi -->
-                        <div class="non-operating-field">
+                        <div id="divTidakBeroperasi" style="display: none;">
                             <label for="namaUsaha" class="col-sm-2 col-form-label">Nama Usaha</label>
                             <div class="col-sm-9 mb-3">
                                 <input type="text" class="form-control" id="namaUsaha" name="namaUsaha"
@@ -63,30 +59,34 @@
                         </div>
 
                         <!-- Beroperasi -->
-                        <div class="operating-field">
+                        <div id="divBeroperasi" style="display: none;">
+
                             <label for="noSurat" class="col-sm-2 col-form-label">SK dari RT</label>
                             <div class="col-sm-9 mb-3">
                                 <input type="text" class="form-control" id="noSurat" name="noSurat"
                                     value="<?= set_value('noSurat') ?>">
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
-                        </div>
 
-                        <div class="operating-field">
-                            <label for="tang_surat" class="col-sm-2 col-form-label">Tanggal Surat</label>
+                            <label for="noSurat" class="col-sm-2 col-form-label">Tanggal Surat</label>
                             <div class="col-sm-9 mb-3">
                                 <input type="date" class="form-control" id="tang_surat" name="tang_surat"
                                     value="<?= set_value('tang_surat') ?>">
                                 <?= form_error('tang_surat', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
-                        </div>
 
-                        <div class="operating-field">
                             <label for="j_usaha" class="col-sm-2 col-form-label">Jenis Usaha</label>
                             <div class="col-sm-9 mb-3">
                                 <input type="text" class="form-control" id="j_usaha" name="j_usaha"
                                     value="<?= set_value('j_usaha') ?>">
                                 <?= form_error('j_usaha', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+
+                            <label for="a_usaha" class="col-sm-2 col-form-label">Alamat Tempat Usaha</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" class="form-control" id="alamat" name="alamat"
+                                    value="<?= set_value('alamat') ?>"></textarea>
+                                <?= form_error('a_usaha', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                         </div>
                     </div>

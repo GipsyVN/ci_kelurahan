@@ -41,26 +41,32 @@ $(document).ready(function () {
 		});
 	});
 
-	// Bemlum berfumgsi
-	function toggleForm() {
-		const status = document.querySelector('input[name="status"]:checked').value;
-		const operatingFields = document.querySelectorAll('.operating-field');
-		const nonOperatingFields = document.querySelectorAll('.non-operating-field');
-		
-		if (status === 'Beroperasi') {
-			operatingFields.forEach(field => field.style.display = 'block');
-			nonOperatingFields.forEach(field => field.style.display = 'none');
-		} else {
-			operatingFields.forEach(field => field.style.display = 'none');
-			nonOperatingFields.forEach(field => field.style.display = 'block');
-		}
-	}
+	$(".status-input").on("click", function () {
+		var beroperasi = document.getElementById("buka");
+		var tidakBeroperasi = document.getElementById("tutup");
+		var tidakBeroperasiUsaha = document.getElementById("namaUsaha");
+		var beroperasiNoSurat = document.getElementById("noSuratRT");
+		var beroperasiTangSurat = document.getElementById("tang_surat");
+		var beroperasiJUsaha = document.getElementById("j_usaha");
+		var beroperasiAlamat = document.getElementById("a_usaha");
 
-	window.onload = function() {
-		// Sembunyikan semua form tambahan saat halaman dimuat
-		const operatingFields = document.querySelectorAll('.operating-field');
-		const nonOperatingFields = document.querySelectorAll('.non-operating-field');
-		operatingFields.forEach(field => field.style.display = 'none');
-		nonOperatingFields.forEach(field => field.style.display = 'none');
-	}
+		if (tidakBeroperasi.checked) {
+			tidakBeroperasiUsaha.removeAttribute("readonly");
+			beroperasiNoSurat.setAttribute("readonly", true);
+			beroperasiNoSurat.value = "";
+			beroperasiTangSurat.setAttribute("readonly", true);
+			beroperasiTangSurat.value = "";
+			beroperasiJUsaha.setAttribute("readonly", true);
+			beroperasiJUsaha.value = "";
+			beroperasiAlamat.setAttribute("readonly", true);
+			beroperasiAlamat.value = "";
+		} else if (beroperasi.checked) {
+			beroperasiNoSurat.removeAttribute("readonly");
+			beroperasiTangSurat.removeAttribute("readonly");
+			beroperasiJUsaha.removeAttribute("readonly");
+			beroperasiAlamat.removeAttribute("readonly");
+			tidakBeroperasiUsaha.setAttribute("readonly", true);
+			tidakBeroperasiUsaha.value = "";
+		}
+	});
 });
