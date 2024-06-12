@@ -4,10 +4,11 @@
     <!-- Page Heading -->
     <!-- Buat Konten Disini -->
     <h1 class="h3 mb-4 text-gray-800"><?php echo "Form Isian Pemohon" ?></h1>
+    <?= $this->session->flashdata('message') ?>
 
     <div class="row">
         <div class="col">
-            <form action="<?= base_url('surat/test'); ?>" method="post">
+            <form action="<?= base_url('surat/ket_usaha'); ?>" method="post">
                 <div class="form-group row">
                     <label for="noSurat" class="col-sm-2 col-form-label">No Surat</label>
                     <div class="col-sm-9 mb-3">
@@ -42,7 +43,7 @@
                         <?= form_error('tang_lahir', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
-                    <label for="j_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                    <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-9 mb-3">
                         <div class="form-check-inline mr-5 mt-2">
                             <input class="mr-2" type="radio" id="laki" name="j_kelamin" value="Laki - Laki">
@@ -69,16 +70,16 @@
                         <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
+                    <!-- STATUS USAHA DISINI -->
                     <label for="status" class="col-sm-2 col-form-label">Status Usaha</label>
                     <div class="col-sm-9 mb-3">
                         <div class="form-check-inline mr-5 mt-2">
-                            <input class="mr-2 status-input" type="radio" id="buka" name="status" value="Beroperasi"
-                                onclick="toggleForm()">
+                            <input class="mr-2 status-input" type="radio" id="buka" name="status" value="Beroperasi">
                             <label class="form-check-label" for="buka">Beroperasi</label>
                         </div>
                         <div class="form-check-inline mr-3 mt-2">
                             <input class="mr-2 status-input" type="radio" id="tutup" name="status"
-                                value="Tidak Beroperasi" onclick="toggleForm()">
+                                value="Tidak Beroperasi">
                             <label class="form-check-label" for="tutup">Tidak Beroperasi</label>
                         </div>
                         <?= form_error('status', '<small class="text-danger pl-3">', '</small>') ?>
@@ -96,8 +97,8 @@
                     <label for="noSuratRT" class="col-sm-2 col-form-label">SK dari RT</label>
                     <div class="col-sm-9 mb-3">
                         <input type="text" class="form-control" id="noSuratRT" name="noSuratRT"
-                            value="<?= set_value('noSurat') ?>" id="inputNoSurat" readonly>
-                        <?= form_error('name', '<small class="text-danger pl-3">', '</small>') ?>
+                            value="<?= set_value('noSuratRT') ?>" readonly>
+                        <?= form_error('noSuratRT', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
                     <label for="noSurat" class="col-sm-2 col-form-label">Tanggal Surat</label>
@@ -114,13 +115,13 @@
                         <?= form_error('j_usaha', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
-                    <label for="a_usaha" class="col-sm-2 col-form-label">Alamat Tempat
-                        Usaha</label>
+                    <label for="a_usaha" class="col-sm-2 col-form-label">Alamat Tempat Usaha</label>
                     <div class="col-sm-9">
                         <textarea type="text" class="form-control" id="a_usaha" name="a_usaha"
-                            value="<?= set_value('alamat') ?>" readonly></textarea>
+                            readonly><?= set_value('a_usaha') ?></textarea>
                         <?= form_error('a_usaha', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
+
                 </div>
                 <div class="form-group row justify-content-end">
                     <div class="col-sm-10">
