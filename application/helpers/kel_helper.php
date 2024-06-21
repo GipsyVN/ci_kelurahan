@@ -34,4 +34,30 @@ function check_access($role_id, $menu_id)
         return "checked='checked'";
     }
 }
+
+function format_tanggal()
+{
+    $months = array(
+        '01' => 'Januari',
+        '02' => 'Februari',
+        '03' => 'Maret',
+        '04' => 'April',
+        '05' => 'Mei',
+        '06' => 'Juni',
+        '07' => 'Juli',
+        '08' => 'Agustus',
+        '09' => 'September',
+        '10' => 'Oktober',
+        '11' => 'November',
+        '12' => 'Desember'
+    );
+
+    $dateObj = DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
+    if ($dateObj) {
+        $day = $dateObj->format('d');
+        $month = $dateObj->format('m');
+        $year = $dateObj->format('Y');
+        return $day . ' ' . $months[$month] . ' ' . $year;
+    }
+}
 ?>

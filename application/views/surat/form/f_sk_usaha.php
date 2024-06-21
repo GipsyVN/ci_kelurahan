@@ -65,8 +65,8 @@
 
                     <label for="alamat" class="col-sm-2 col-form-label">Alamat Tempat Tinggal</label>
                     <div class="col-sm-9 mb-3">
-                        <textarea type="text" class="form-control" id="alamat" name="alamat"
-                            value="<?= set_value('alamat') ?>"></textarea>
+                        <textarea type="text" class="form-control" id="alamat"
+                            name="alamat"><?= set_value('alamat') ?></textarea>
                         <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 

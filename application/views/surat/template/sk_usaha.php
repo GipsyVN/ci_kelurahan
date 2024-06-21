@@ -159,28 +159,28 @@
                         <tr>
                             <td style="border: none;">Jenis Kelamin</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;">[Input Jenis Kelamin]</td>
+                            <td style="border: none;"><?= $jenis_kelamin ?></td>
                         </tr>
                         <tr>
                             <td style="border: none;">Pekerjaan</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;">[Input Pekerjaan]</td>
+                            <td style="border: none;"><?= $pekerjaan ?></td>
                         </tr>
                         <tr>
                             <td style="border: none;">Alamat Tempat Tinggal</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;">[Input Alamat Tempat Tinggal]</td>
+                            <td style="border: none;"><?= $alamat_tempat_tinggal ?></td>
                         </tr>
                         <tr>
                             <td style="border: none;">Alamat Tempat Usaha</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;">[InputAlamat Tempat Usaha]</td>
+                            <td style="border: none;"><?= $alamat_usaha ?></td>
                         </tr>
                     </table>
         </div class="penutup">
-        <h2>Berdasarkan surat keterangan dari [Input Ketua RT] [Input Tanggal-Bulan-Tahun] yang menerangkan bahwa nama
-            tersebut diatas benar mempunyai Usaha[Input Jenis Usaha] dengan alamat tempat usaha seperti tercantum
-            diatas.</h2>
+        <h2><?= "Berdasarkan surat keterangan dari " . $no_surat_rt . " Tanggal " . $tanggal_surat . " yang menerangkan bahwa nama
+            tersebut diatas benar mempunyai Usaha " . $jenis_usaha . " dengan alamat tempat usaha seperti tercantum
+            diatas." ?></h2>
         <h2>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</h2>
     </div>
     <div class="tt">
@@ -188,7 +188,7 @@
         <table style="border-collapse: collapse; width: 100%;border-bottom:none;">
             <tr>
                 <td style="border: none;"></td>
-                <td style="border: none;">Nanga Bulik,[Tanggal-Bulan-Tahun]</td>
+                <td style="border: none;">Nanga Bulik, <?= format_tanggal() ?></td>
                 <td style="border: none;"></td>
             </tr>
 
@@ -219,15 +219,6 @@
     </div>
     </div>
     </div>
-    <button id="printButton">Print this page</button>
-    <script>
-        window.onload = function () {
-            var printButton = document.getElementById('printButton');
-            printButton.addEventListener('click', function () {
-                window.print();
-            });
-        };
-    </script>
 </body>
 
 </html>

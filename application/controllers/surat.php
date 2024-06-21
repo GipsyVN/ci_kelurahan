@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class Surat extends CI_Controller
 {
     public function __construct()
@@ -166,7 +169,7 @@ class Surat extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Nama Pemohon Tidak Boleh Kosong'
         ]);
-        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numberic', [
+        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
         //     'required' => 'NIK Tidak Boleh Kosong',
         //     'min_length' => 'NIK Minimal 16 Digit',
         //     'max_length' => 'NIK Maximal 16 Digit',
@@ -239,6 +242,21 @@ class Surat extends CI_Controller
                     'jenis_usaha' => $this->input->post('j_usaha'),
                     'alamat_usaha' => $this->input->post('a_usaha'),
                 ];
+
+                $this->load->library('dompdf');
+                $this->load->view('surat/template/sk_usaha', $data);
+                $html = $this->output->get_output();
+
+                $options = new Options();
+                $options->set('isHTML5ParserEnabled', true);
+                $options->set('isPhpEnabled', true);
+                $options->set('defaultPaperSize', 'F4');
+
+                $dompdf = new Dompdf($options);
+                $dompdf->loadHTML($html);
+                $dompdf->render();
+                $dompdf->stream('Surat_Keterangan_Usaha.pdf', array('Attachment' => 0));
+
             } else if ($this->input->post('status') == 'Tidak Beroperasi') {
                 $tanggal_lahir = $this->input->post('tang_lahir');
                 $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
@@ -256,8 +274,6 @@ class Surat extends CI_Controller
                     'nama_usaha' => $this->input->post('namaUsaha'),
                 ];
             }
-
-            $this->load->view('surat/template/sk_Usaha', $data);
         }
     }
 
