@@ -12,11 +12,13 @@
         }
 
         .rangkasurat {
-            width: 980px;
-            margin: 0 auto;
+            width: 19.05cm !important;
+            margin: 0 auto !important;
             background-color: #fff;
-            height: 500px;
-            padding: 20px;
+            height: 30.46cm !important;
+            padding-top: 1.54cm !important;
+            padding-left: 2.54cm !important;
+            padding-right: 2.54cm !important;
         }
 
         table {
@@ -35,16 +37,20 @@
     <div class="rangkasurat">
         <table width="100%">
             <tr>
-                <td><img src="<?= base_url('/assets/img/logo.png') ?>" width="140px"></td>
+                <td><img src="<?= base_url('/assets/img/logo.png') ?>" width="100px"></td>
                 <td class="tengah">
                     <h2>PEMERINTAH KABUPATEN LAMANDAU</h2>
                     <h2>KECAMATAN BULIK</h2>
                     <h2>KELURAHAN NANGA BULIK</h2>
-                    <p>Jl.Batu Batanggui RT.004C Nomor : 052</p>
-                    <p>Email: kelurahankantor664@gmail.com Kode Pos : 74662</p>
+                    <p>Jl.Batu Batanggui Nomor 052 RT.004C Kelurahan Nanga Bulik Kecamatan Bulik</p>
+                    <p>Kabupaten Lamandau Kode Pos : 74662</p>
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div>
+
     </div>
 </body>
 

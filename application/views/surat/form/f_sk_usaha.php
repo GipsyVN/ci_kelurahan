@@ -125,7 +125,7 @@
                 </div>
                 <div class="form-group row justify-content-end">
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Preview</button>
+                        <button id="preview" type="submit" class="btn btn-primary">Preview</button>
                         <a href="<?php //echo base_url('surat') ?>" class="btn btn-primary">Simpan</a>
                         <a href="<?= base_url('surat') ?>" class="btn btn-danger">Kembali</a>
                     </div>

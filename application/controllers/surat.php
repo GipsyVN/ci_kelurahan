@@ -243,20 +243,10 @@ class Surat extends CI_Controller
                     'alamat_usaha' => $this->input->post('a_usaha'),
                 ];
 
-                //Hmmmm,, keknya aku punya ide
-                // $this->load->library('dompdf');
+
                 $this->load->view('surat/template/sk_usaha');
-                // $html = $this->output->get_output();
 
-                // $options = new Options();
-                // $options->set('isHTML5ParserEnabled', true);
-                // $options->set('isPhpEnabled', true);
-                // $options->set('defaultPaperSize', 'F4');
 
-                // $dompdf = new Dompdf($options);
-                // $dompdf->loadHTML($html);
-                // $dompdf->render();
-                // $dompdf->stream('Surat_Keterangan_Usaha.pdf', array('Attachment' => 0));
 
 
             } else if ($this->input->post('status') == 'Tidak Beroperasi') {
