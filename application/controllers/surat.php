@@ -244,7 +244,7 @@ class Surat extends CI_Controller
                 ];
 
 
-                $this->load->view('surat/template/sk_usaha');
+                $this->load->view('surat/template/sk_usaha', $data);
 
 
 
