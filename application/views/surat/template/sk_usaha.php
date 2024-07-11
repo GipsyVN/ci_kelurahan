@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surat Keterangan Usaha</title>
+    <link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -50,7 +51,7 @@
             background-color: #0056b3;
         }
 
-        table {
+        .table-kop {
             border-bottom: 5px solid #000;
             padding: 2px;
         }
@@ -65,172 +66,78 @@
             padding: 0;
         }
 
+        .navbar {
+            background-color: #f8f8f8;
+            border-color: #e7e7e7;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
         .navbar-brand {
             display: inline-block;
-            padding-top: 0.3125rem;
-            padding-bottom: 0.3125rem;
-            margin-right: 1rem;
             font-size: 1.25rem;
             line-height: inherit;
             white-space: nowrap;
+            color: #777;
         }
 
-        .navbar-brand:hover,
-        .navbar-brand:focus {
-            text-decoration: none;
+        .btn-primary {
+            color: #fff;
+            background-color: #4e73df;
+            border-color: #4e73df
         }
 
-        .navbar-btn {
-            margin-top: 8px;
-            margin-bottom: 8px
+        .table-ket {
+            border-collapse: collapse;
+            width: 100%;
+            border-bottom: none;
         }
 
-        .btn-group-sm>.navbar-btn.btn,
-        .navbar-btn.btn-sm {
-            margin-top: 10px;
-            margin-bottom: 10px
+        .table-ket td {
+            border: none;
         }
 
-        .btn-group-xs>.navbar-btn.btn,
-        .navbar-btn.btn-xs {
-            margin-top: 14px;
-            margin-bottom: 14px
+        .right-align {
+            text-align: right;
         }
 
-        .navbar-right {
-            float: right !important;
-            margin-right: -15px
+        .bold-underline {
+            font-weight: bold;
+            text-decoration: underline;
         }
 
-        .navbar-right~.navbar-right {
-            margin-right: 0
-        }
-
-        .navbar-default {
-            background-color: #f8f8f8;
-            border-color: #e7e7e7
-        }
-
-        .navbar-default .navbar-brand {
-            color: #777
-        }
-
-        .navbar-default .navbar-brand:focus,
-        .navbar-default .navbar-brand:hover {
-            color: #5e5e5e;
-            background-color: transparent
-        }
-
-        .navbar-default .navbar-nav>li>a,
-        .navbar-default .navbar-text {
-            color: #777
-        }
-
-        .navbar-default .navbar-nav>li>a:focus,
-        .navbar-default .navbar-nav>li>a:hover {
-            color: #333;
-            background-color: transparent
-        }
-
-        .navbar-default .navbar-nav>.active>a,
-        .navbar-default .navbar-nav>.active>a:focus,
-        .navbar-default .navbar-nav>.active>a:hover {
-            color: #555;
-            background-color: #e7e7e7
-        }
-
-        .navbar-default .navbar-nav>.disabled>a,
-        .navbar-default .navbar-nav>.disabled>a:focus,
-        .navbar-default .navbar-nav>.disabled>a:hover {
-            color: #ccc;
-            background-color: transparent
-        }
-
-        .navbar-default .navbar-toggle {
-            border-color: #ddd
-        }
-
-        .navbar-default .navbar-toggle:focus,
-        .navbar-default .navbar-toggle:hover {
-            background-color: #ddd
-        }
-
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #888
-        }
-
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-            border-color: #e7e7e7
-        }
-
-        .navbar-default .navbar-nav>.open>a,
-        .navbar-default .navbar-nav>.open>a:focus,
-        .navbar-default .navbar-nav>.open>a:hover {
-            background-color: #e7e7e7;
-            color: #555
-        }
-
-        @media (max-width:767px) {
-            .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-                color: #777
+        @media print {
+            @page {
+                size: A4 portrait landscape;
             }
 
-            .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
-            .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-                color: #333;
-                background-color: transparent
-            }
-
-            .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
-            .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
-            .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
-                color: #555;
-                background-color: #e7e7e7
-            }
-
-            .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
-            .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,
-            .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover {
-                color: #ccc;
-                background-color: transparent
+            #navbar {
+                display: none;
             }
         }
-
-        .navbar-default .navbar-link {
-            color: #777
-        }
-
-        .navbar-default .navbar-link:hover {
-            color: #333
-        }
-
-        .navbar-default .btn-link {
-            color: #777
-        }
-
-        .navbar-default .btn-link:focus,
-        .navbar-default .btn-link:hover {
-            color: #333
-        }
-
-        .navbar-default .btn-link[disabled]:focus,
-        .navbar-default .btn-link[disabled]:hover,
-        fieldset[disabled] .navbar-default .btn-link:focus,
-        fieldset[disabled] .navbar-default
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
+    <nav id="navbar" class="navbar">
+        <div class="container1">
             <p class="navbar-brand">Kartu Ujian Mahasiswa</p>
-            <button type="button" class="btn btn-primary btn-flat navbar-btn navbar-right"
-                onclick="window.print(); return false;"><i class="fa fa-print"></i> Cetak</button>
+            <button type="button" class="btn btn-primary" onclick="window.print(); return false;"><i
+                    class="fa fa-print"></i> Cetak</button>
         </div>
     </nav>
+    <br>
     <div class="rangkasurat">
-        <table width="100%">
+        <table class="table-kop" width="100%">
             <tr>
                 <td><img src="<?= base_url('/assets/img/logo.png') ?>" width="100px"></td>
                 <td class="tengah">
@@ -245,83 +152,81 @@
         <p class="no_spasi"
             style="text-decoration: underline; text-align: center; font-weight: bold; padding-top :25px; ">SURAT
             KETERANGAN USAHA</p>
-        <p class="no_spasi" style="text-align: center;">Nomor: </p>
+        <p class="no_spasi" style="text-align: center;">Nomor: <?= $no_surat ?></p>
         <p style="text-align: justify;">Yang bertandatangan dibawah ini Lurah Nanga Bulik Kecamatan Bulik Kabupaten
             Lamandau dengan ini menerangkan bahwa:
         <p>
 
-        <table style="border-collapse: collapse; width: 100%;border-bottom:none;">
+        <table class="table-ket">
             <tr>
-                <td style="border: none;">Nama</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input nama]</td>
+                <td style="width: 250px;">Nama</td>
+                <td style="width: 10px;">:</td>
+                <td style="width: auto;"><?= $nama ?></td>
             </tr>
             <tr>
-                <td style="border: none;">NIK</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input nik]</td>
+                <td>NIK</td>
+                <td>:</td>
+                <td><?= $nik ?></td>
             </tr>
             <tr>
-                <td style="border: none;">Tempat dan Tanggal Lahir</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input Tempat,Tanggal-Bulan-Tahun]</td>
+                <td>Tempat dan Tanggal Lahir</td>
+                <td>:</td>
+                <td><?= $tempat_lahir . ", " . $tanggal_lahir ?></td>
             </tr>
             <tr>
-                <td style="border: none;">Jenis Kelamin</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input Jenis Kelamin]</td>
+                <td>Jenis Kelamin</td>
+                <td>:</td>
+                <td><?= $jenis_kelamin ?></td>
             </tr>
             <tr>
-                <td style="border: none;">Pekerjaan</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input Pekerjaan]</td>
+                <td>Pekerjaan</td>
+                <td>:</td>
+                <td><?= $pekerjaan ?></td>
             </tr>
             <tr>
-                <td style="border: none;">Alamat Tempat Tinggal</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[Input Alamat Tempat Tinggal]</td>
+                <td>Alamat Tempat Tinggal</td>
+                <td>:</td>
+                <td><?= $alamat_tempat_tinggal ?></td>
             </tr>
             <tr>
-                <td style="border: none;">Alamat Tempat Usaha</td>
-                <td style="border: none;">:</td>
-                <td style="border: none;">[InputAlamat Tempat Usaha]</td>
+                <td>Alamat Tempat Usaha</td>
+                <td>:</td>
+                <td><?= $alamat_usaha ?></td>
             </tr>
         </table>
-        <p style="   text-align: justify;">Berdasarkan surat keterangan dari [Input Ketua RT] [Input
-            Tanggal-Bulan-Tahun] yang menerangkan bahwa nama tersebut diatas benar mempunyai Usaha[Input Jenis Usaha]
-            dengan alamat tempat usaha seperti tercantum diatas.</p>
-        <p>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</p>
+        <p style="text-align: justify;">Berdasarkan surat keterangan dari RT <?= $no_rt . ", " . $tanggal_surat ?> yang
+            menerangkan bahwa nama
+            tersebut diatas benar mempunyai Usaha <?= $jenis_usaha ?> dengan alamat tempat usaha seperti tercantum
+            diatas.</p>
+        <p style="text-align: justify;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana
+            mestinya.</p>
 
         <br><br>
-        <table style="border-collapse: collapse; width: 100%;border-bottom:none; text-align: right;">
+        <table class="table-ket right-align">
             <tr>
-                <td style="border: none;"></td>
-                <td style="border: none;">Nanga Bulik,[Tanggal-Bulan-Tahun]</td>
-                <td style="border: none;"></td>
+                <td></td>
+                <td>Nanga Bulik, <?= format_tanggal() ?></td>
+                <td></td>
             </tr>
-
             <tr>
-                <td style="border: none;"></td>
-                <td style="border: none;">Lurah Nanga Bulik</td>
-                <td style="border: none;"></td>
+                <td></td>
+                <td>Lurah Nanga Bulik</td>
+                <td></td>
             </tr>
-
             <tr>
-                <td style="border: none;"></td>
-                <td style="border: none;"><br><br><br></td>
-                <td style="border: none;"></td>
+                <td></td>
+                <td><br><br><br></td>
+                <td></td>
             </tr>
-
             <tr>
-                <td style="border: none;"></td>
-                <td style="border: none;font-weight: bold;text-decoration: underline;">[Input Nama Lurah]</td>
-                <td style="border: none;"></td>
+                <td></td>
+                <td class="bold-underline">[Input Nama Lurah]</td>
+                <td></td>
             </tr>
-
             <tr>
-                <td style="border: none;"></td>
-                <td style="border: none;">NIP. [Input NIP Lurah]</td>
-                <td style="border: none;"></td>
+                <td></td>
+                <td>NIP. [Input NIP Lurah]</td>
+                <td></td>
             </tr>
         </table>
 

@@ -237,7 +237,7 @@ class Surat extends CI_Controller
                     'pekerjaan' => $this->input->post('pekerjaan'),
                     'alamat_tempat_tinggal' => $this->input->post('alamat'),
                     'status_usaha' => $this->input->post('status'),
-                    'no_surat_rt' => $this->input->post('noSuratRT'),
+                    'no_rt' => $this->input->post('noSuratRT'),
                     'tanggal_surat' => $formatted_tanggal_surat,
                     'jenis_usaha' => $this->input->post('j_usaha'),
                     'alamat_usaha' => $this->input->post('a_usaha'),
