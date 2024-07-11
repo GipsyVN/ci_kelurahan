@@ -54,16 +54,6 @@
     var baseUrl = "<?php echo base_url(); ?>";
 </script>
 <script src="<?= base_url('assets/') ?>js/custom.js"></script>
-
-<script>
-    document.getElementById('open-sk-usaha').addEventListener('click', function () {
-        // Get the URL from the PHP variable passed from the controller
-        var skUsahaUrl = '<?php echo $sk_usaha_url; ?>';
-
-        // Open the URL in a new tab
-        window.open(skUsahaUrl, '_blank');
-    });
-</script>
 </body>
 
 </html>
