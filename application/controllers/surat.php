@@ -243,11 +243,7 @@ class Surat extends CI_Controller
                     'alamat_usaha' => $this->input->post('a_usaha'),
                 ];
 
-
                 $this->load->view('surat/template/sk_usaha', $data);
-
-
-
 
             } else if ($this->input->post('status') == 'Tidak Beroperasi') {
                 $tanggal_lahir = $this->input->post('tang_lahir');
@@ -265,6 +261,8 @@ class Surat extends CI_Controller
                     'status_usaha' => $this->input->post('status'),
                     'nama_usaha' => $this->input->post('namaUsaha'),
                 ];
+
+                $this->load->view('surat/template/sk_usaha_ta', $data);
             }
         }
     }
