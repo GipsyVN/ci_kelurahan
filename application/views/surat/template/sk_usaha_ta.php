@@ -113,11 +113,6 @@
             #navbar {
                 display: none;
             }
-
-            body {
-                margin: none !important;
-                padding: none !important;
-            }
         }
     </style>
 </head>
@@ -139,20 +134,21 @@
                     <h2>PEMERINTAH KABUPATEN LAMANDAU</h2>
                     <h2>KECAMATAN BULIK</h2>
                     <h2>KELURAHAN NANGA BULIK</h2>
-                    <p>Jl.Batu Batanggui Nomor 052 RT.004C Kelurahan Nanga Bulik Kecamatan Bulik</p>
+                    <p>Jl. Batu Batanggui Nomor 052 RT.004C Kelurahan Nanga Bulik Kecamatan Bulik</p>
                     <p>Kabupaten Lamandau Kode Pos : 74662</p>
                 </td>
             </tr>
         </table>
         <p class="no_spasi"
-            style="text-decoration: underline; text-align: center; font-weight: bold; padding-top :25px; ">SURAT
-            KETERANGAN USAHA</p>
-        <p class="no_spasi" style="text-align: center;">Nomor: <?= $no_surat ?></p>
-        <p style="text-align: justify;">Yang bertandatangan dibawah ini Lurah Nanga Bulik Kecamatan Bulik Kabupaten
-            Lamandau dengan ini menerangkan bahwa:
+            style="text-decoration: underline; text-align: center; font-weight: bold; padding-top :25px; font-size: 18px">
+            SURAT
+            KETERANGAN</p>
+        <p class="no_spasi" style="text-align: center; font-size: 18px;">Nomor: <?= $no_surat ?></p>
+        <p style="text-align: justify; font-size: 18px;">Yang bertanda tangan dibawah ini Lurah Nanga Bulik Kecamatan
+            Bulik Kabupaten Lamandau dengan ini menerangkan bahwa:
         <p>
 
-        <table class="table-ket">
+        <table class="table-ket" style="font-size: 18px;">
             <tr>
                 <td style="width: 250px;">Nama</td>
                 <td style="width: 10px;">:</td>
@@ -183,21 +179,17 @@
                 <td>:</td>
                 <td><?= $alamat_tempat_tinggal ?></td>
             </tr>
-            <tr>
-                <td>Alamat Tempat Usaha</td>
-                <td>:</td>
-                <td><?= $alamat_usaha ?></td>
-            </tr>
         </table>
-        <p style="text-align: justify;">Berdasarkan surat keterangan dari RT <?= $no_rt . ", " . $tanggal_surat ?> yang
-            menerangkan bahwa nama
-            tersebut diatas benar mempunyai Usaha <?= $jenis_usaha ?> dengan alamat tempat usaha seperti tercantum
-            diatas.</p>
-        <p style="text-align: justify;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana
+        <p style="text-align: justify; font-size: 18px;">Bahwa berdasarkan dari pengakuan nama tersebut diatas selaku
+            pemilik <?= $nama_usaha; ?>, dengan alamat
+            seperti tercantum diatas mengatakan bahwa usaha yang selama ini dijalankan sudah tutup/tidak beroperasi
+            lagi.</p>
+        <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan
+            sebagaimana
             mestinya.</p>
 
         <br><br>
-        <table class="table-ket right-align">
+        <table class="table-ket right-align" style="font-size: 18px;">
             <tr>
                 <td></td>
                 <td>Nanga Bulik, <?= format_tanggal() ?></td>
@@ -210,7 +202,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><br><br><br></td>
+                <td><br><br><br><br></td>
                 <td></td>
             </tr>
             <tr>

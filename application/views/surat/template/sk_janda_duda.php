@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Keterangan Usaha</title>
+    <title>Surat Keterangan <?= $ket ?></title>
     <link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         body {
@@ -120,7 +120,7 @@
 <body>
     <nav id="navbar" class="navbar">
         <div class="container">
-            <p class="navbar-brand">Surat Keterangan Usaha</p>
+            <p class="navbar-brand">Surat Keterangan <?= $ket ?></p>
             <button type="button" class="btn btn-primary" onclick="window.print(); return false;"><i
                     class="fa fa-print"></i> Cetak</button>
         </div>
@@ -141,8 +141,7 @@
         </table>
         <p class="no_spasi"
             style="text-decoration: underline; text-align: center; font-weight: bold; padding-top :25px; font-size: 18px">
-            SURAT
-            KETERANGAN USAHA</p>
+            SURAT KETERANGAN</p>
         <p class="no_spasi" style="text-align: center; font-size: 18px;">Nomor: <?= $no_surat ?></p>
         <p style="text-align: justify; font-size: 18px;">Yang bertanda tangan dibawah ini Lurah Nanga Bulik Kecamatan
             Bulik Kabupaten Lamandau dengan ini menerangkan bahwa: </p>
@@ -178,17 +177,10 @@
                 <td>:</td>
                 <td><?= $alamat_tempat_tinggal ?></td>
             </tr>
-            <tr>
-                <td>Alamat Tempat Usaha</td>
-                <td>:</td>
-                <td><?= $alamat_usaha ?></td>
-            </tr>
         </table>
-        <p style="text-align: justify; font-size: 18px;">Berdasarkan surat keterangan dari RT
-            <?= $no_rt . ", " . $tanggal_surat ?> yang
-            menerangkan bahwa nama
-            tersebut diatas benar mempunyai Usaha <?= $jenis_usaha ?> dengan alamat tempat usaha seperti tercantum
-            diatas.
+        <p style="text-align: justify; font-size: 18px;">Berdasarkan kutipan Akta Kematian Dari Dinas Kependudukan dan
+            Pencatatan Sipil Nomor : <?= $no_akta ?>.
+            Bahwa Nama tersebut diatas memang benar sekarang sudah berstatus <b><i><?= $ket ?></i></b> ( Cerai Mati ).
         </p>
         <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan
             sebagaimana
