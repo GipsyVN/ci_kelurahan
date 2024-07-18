@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col">
-            <form action="<?= base_url('surat/test'); ?>" method="post">
+            <form action="<?= base_url('surat/ket_rumah'); ?>" method="post">
                 <div class="form-group row">
                     <label for="noSurat" class="col-sm-2 col-form-label">No Surat</label>
                     <div class="col-sm-9 mb-3">
@@ -64,16 +64,16 @@
 
                     <label for="alamat" class="col-sm-2 col-form-label">Alamat Tempat Tinggal</label>
                     <div class="col-sm-9 mb-3">
-                        <textarea type="text" class="form-control" id="alamat" name="alamat"
-                            value="<?= set_value('alamat') ?>"></textarea>
+                        <textarea type="text" class="form-control" id="alamat"
+                            name="alamat"><?= set_value('alamat') ?></textarea>
                         <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
-                    <label for="noSurat" class="col-sm-2 col-form-label">SK dari RT</label>
+                    <label for="noSuratRT" class="col-sm-2 col-form-label">SK dari RT</label>
                     <div class="col-sm-9 mb-3">
-                        <input type="text" class="form-control" id="noSurat" name="noSurat"
-                            value="<?= set_value('noSurat') ?>">
-                        <?= form_error('name', '<small class="text-danger pl-3">', '</small>') ?>
+                        <input type="text" class="form-control" id="noSuratRT" name="noSuratRT"
+                            value="<?= set_value('noSuratRT') ?>">
+                        <?= form_error('noSuratRT', '<small class="text-danger pl-3">', '</small>') ?>
                     </div>
 
                     <label for="noSurat" class="col-sm-2 col-form-label">Tanggal Surat</label>

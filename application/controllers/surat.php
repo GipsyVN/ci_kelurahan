@@ -340,6 +340,71 @@ class Surat extends CI_Controller
 
     }
 
+    public function ket_rumah()
+    {
+        $email = $this->session->userdata('email');
+        $role_id = $this->session->userdata('role_id');
+        $data['title'] = 'Cetak Surat';
+        $data['user'] = $this->m_user->get_user($email);
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+
+        $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
+            'required' => 'Nomor Surat Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
+            'required' => 'Nama Pemohon Tidak Boleh Kosong'
+        ]);
+        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
+        //     'required' => 'NIK Tidak Boleh Kosong',
+        //     'min_length' => 'NIK Minimal 16 Digit',
+        //     'max_length' => 'NIK Maximal 16 Digit',
+        //     'numeric' => 'NIK Harus Berupa Angka'
+        // ]);
+        $this->form_validation->set_rules('tem_lahir', 'Tempat Lahir', 'required|trim', [
+            'required' => 'Tempat Lahir Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('tang_lahir', 'Tanggal Lahir', 'required|trim', [
+            'required' => 'Tanggal Lahir Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('j_kelamin', 'Jenis Kelamin', 'required', [
+            'required' => 'Jenis Kelamin Harus Dipilih'
+        ]);
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|trim', [
+            'required' => 'Pekerjaan Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
+            'required' => 'Alamat Tempat Tinggal Tidak Boleh Kosong'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templetes/header', $data);
+            $this->load->view('templetes/sidebar', $data);
+            $this->load->view('templetes/topbar', $data);
+            $this->load->view('surat/form/f_sk_belum_ada_rumah');
+            $this->load->view('templetes/footer');
+        } else {
+            $tanggal_lahir = $this->input->post('tang_lahir');
+            $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
+            $tanggal_surat = $this->input->post('tang_surat');
+            $formatted_tanggal_surat = $this->__format_tanggal($tanggal_surat);
+
+            $data = [
+                'no_surat' => $this->input->post('noSurat'),
+                'nama' => $this->input->post('nama'),
+                'nik' => $this->input->post('nik'),
+                'tempat_lahir' => $this->input->post('tem_lahir'),
+                'tanggal_lahir' => $formatted_tanggal_lahir,
+                'jenis_kelamin' => $this->input->post('j_kelamin'),
+                'pekerjaan' => $this->input->post('pekerjaan'),
+                'alamat_tempat_tinggal' => $this->input->post('alamat'),
+                'no_rt' => $this->input->post('noSuratRT'),
+                'tanggal_surat' => $formatted_tanggal_surat
+            ];
+
+            $this->load->view('surat/template/sk_belum_rumah', $data);
+        }
+    }
+
     private function __format_tanggal($tanggal)
     {
         $months = array(
