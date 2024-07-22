@@ -1,9 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
-
 class Surat extends CI_Controller
 {
     public function __construct()
@@ -75,11 +72,11 @@ class Surat extends CI_Controller
             $this->load->view('surat/form/test');
             $this->load->view('templetes/footer');
         } else if ($surat_id == 6) {
-            // $this->load->view('templetes/header', $data);
-            // $this->load->view('templetes/sidebar', $data);
-            // $this->load->view('templetes/topbar', $data);
+            $this->load->view('templetes/header', $data);
+            $this->load->view('templetes/sidebar', $data);
+            $this->load->view('templetes/topbar', $data);
             $this->load->view('surat/form/test');
-            // $this->load->view('templetes/footer');
+            $this->load->view('templetes/footer');
         } else if ($surat_id == 7) {
             $this->load->view('templetes/header', $data);
             $this->load->view('templetes/sidebar', $data);

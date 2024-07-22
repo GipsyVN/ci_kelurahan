@@ -15,7 +15,7 @@ class User extends CI_Controller
 
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
-        $data['title'] = 'Profile';
+        $data['title'] = 'My Profile';
         $data['user'] = $this->m_user->get_user($email);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
