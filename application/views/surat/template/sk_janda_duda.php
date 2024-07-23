@@ -182,7 +182,7 @@
             Pencatatan Sipil Nomor : <?= $no_akta ?>.
             Bahwa Nama tersebut diatas memang benar sekarang sudah berstatus <b><i><?= $ket ?></i></b> ( Cerai Mati ).
         </p>
-        <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan
+        <p style="text-align: justify; font-size: 18px;">Demikian Surat Kete rangan ini dibuat untuk dapat dipergunakan
             sebagaimana
             mestinya.</p>
 

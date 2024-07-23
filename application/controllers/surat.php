@@ -402,7 +402,7 @@ class Surat extends CI_Controller
         }
     }
 
-    private function __format_tanggal($tanggal)
+    public function __format_tanggal($tanggal)
     {
         $months = array(
             '01' => 'Januari',
