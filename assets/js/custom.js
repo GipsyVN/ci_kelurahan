@@ -19,35 +19,35 @@ $(document).ready(function () {
 	});
 
 	$(".status-input").on("click", function () {
-        var beroperasi = document.getElementById("buka").checked;
-        var tidakBeroperasi = document.getElementById("tutup").checked;
-        var tidakBeroperasiUsaha = document.getElementById("namaUsaha");
-        var beroperasiNoSurat = document.getElementById("noSuratRT");
-        var beroperasiTangSurat = document.getElementById("tang_surat");
-        var beroperasiJUsaha = document.getElementById("j_usaha");
-        var beroperasiAlamat = document.getElementById("a_usaha");
+		var beroperasi = document.getElementById("buka").checked;
+		var tidakBeroperasi = document.getElementById("tutup").checked;
+		var tidakBeroperasiUsaha = document.getElementById("namaUsaha");
+		var beroperasiNoSurat = document.getElementById("noSuratRT");
+		var beroperasiTangSurat = document.getElementById("tang_surat");
+		var beroperasiJUsaha = document.getElementById("j_usaha");
+		var beroperasiAlamat = document.getElementById("a_usaha");
 
-        if (tidakBeroperasi) {
-            tidakBeroperasiUsaha.removeAttribute("readonly");
-            beroperasiNoSurat.setAttribute("readonly", true);
-            beroperasiNoSurat.value = "";
-            beroperasiTangSurat.setAttribute("readonly", true);
-            beroperasiTangSurat.value = "";
-            beroperasiJUsaha.setAttribute("readonly", true);
-            beroperasiJUsaha.value = "";
-            beroperasiAlamat.setAttribute("readonly", true);
-            beroperasiAlamat.value = "";
-            console.log("Test tidak beroperasi berhasil");
-        } else if (beroperasi) {
-            beroperasiNoSurat.removeAttribute("readonly");
-            beroperasiTangSurat.removeAttribute("readonly");
-            beroperasiJUsaha.removeAttribute("readonly");
-            beroperasiAlamat.removeAttribute("readonly");
-            tidakBeroperasiUsaha.setAttribute("readonly", true);
-            tidakBeroperasiUsaha.value = "";
-            console.log("Test beroperasi berhasil");
-        }
-    });
+		if (tidakBeroperasi) {
+			tidakBeroperasiUsaha.removeAttribute("readonly");
+			beroperasiNoSurat.setAttribute("readonly", true);
+			beroperasiNoSurat.value = "";
+			beroperasiTangSurat.setAttribute("readonly", true);
+			beroperasiTangSurat.value = "";
+			beroperasiJUsaha.setAttribute("readonly", true);
+			beroperasiJUsaha.value = "";
+			beroperasiAlamat.setAttribute("readonly", true);
+			beroperasiAlamat.value = "";
+			console.log("Test tidak beroperasi berhasil");
+		} else if (beroperasi) {
+			beroperasiNoSurat.removeAttribute("readonly");
+			beroperasiTangSurat.removeAttribute("readonly");
+			beroperasiJUsaha.removeAttribute("readonly");
+			beroperasiAlamat.removeAttribute("readonly");
+			tidakBeroperasiUsaha.setAttribute("readonly", true);
+			tidakBeroperasiUsaha.value = "";
+			console.log("Test beroperasi berhasil");
+		}
+	});
 
 	$(".custom-file-input").on("change", function () {
 		let fileName = $(this).val().split("\\").pop();

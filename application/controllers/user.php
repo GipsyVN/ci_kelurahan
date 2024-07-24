@@ -15,9 +15,12 @@ class User extends CI_Controller
 
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
+        $user_id = $this->session->userdata('user_id');
         $data['title'] = 'My Profile';
+        $data['role'] = $this->m_user->get_role_name($role_id);
         $data['user'] = $this->m_user->get_user($email);
         $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['medsos'] = $this->m_user->get_medsos($user_id);
 
         $this->load->view('templetes/header', $data);
         $this->load->view('templetes/sidebar', $data);
@@ -168,5 +171,4 @@ class User extends CI_Controller
             redirect('user');
         }
     }
-
 }

@@ -82,4 +82,19 @@ class Admin extends CI_Controller
         Akses Telah Diubah!
         </div>');
     }
+
+    public function user_manage()
+    {
+        $email = $this->session->userdata('email'); //Wajib ada
+        $role_id = $this->session->userdata('role_id'); //Wajib ada
+        $data['title'] = 'User';
+        $data['user'] = $this->m_user->get_user($email); //Wajib ada
+        $data['menus'] = $this->m_menu->get_menu($role_id); //Wajib ada
+
+        $this->load->view('templetes/header', $data);
+        $this->load->view('templetes/sidebar', $data);
+        $this->load->view('templetes/topbar', $data);
+        //$this->load->view('admin/index', $data);
+        $this->load->view('templetes/footer');
+    }
 }

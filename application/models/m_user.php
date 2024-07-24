@@ -33,5 +33,17 @@ class M_user extends CI_Model
         $this->db->update('user_medsos');
     }
 
+    public function get_medsos($user_id)
+    {
+        $this->db->where('id_user', $user_id);
+        return $this->db->get('user_medsos')->row_array();
+    }
+
+    public function get_role_name($role_id)
+    {
+        $this->db->where('id', $role_id);
+        return $this->db->get('user_role')->row_array();
+    }
+
 }
 ?>
