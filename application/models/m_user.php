@@ -14,5 +14,24 @@ class M_user extends CI_Model
         $this->db->where('email', $email);
         $this->db->update('user');
     }
+
+    public function edit_medsos($user_id, $data)
+    {
+        $this->db->where('id_user', $user_id);
+        $query = $this->db->get('user_medsos');
+
+        if ($query->num_rows() == 0) {
+            // id_user does not exist, insert a new record with id_user
+            $this->db->insert('user_medsos', array('id_user' => $user_id));
+        }
+
+        // Set the data fields
+        $this->db->set('twitter', $data['twitter']);
+        $this->db->set('instagram', $data['instagram']);
+        $this->db->set('facebook', $data['facebook']);
+        $this->db->where('id_user', $user_id);
+        $this->db->update('user_medsos');
+    }
+
 }
 ?>

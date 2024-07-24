@@ -135,4 +135,38 @@ class User extends CI_Controller
         }
 
     }
+
+    public function edit_medsos()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        if (empty($user_id)) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                User ID tidak ditemukan. Silahkan log in ulang.
+              </div>');
+            redirect('auth');
+            return;
+        }
+
+        $this->form_validation->set_rules('twitter', 'Twitter', 'trim');
+        $this->form_validation->set_rules('instagram', 'Instagram', 'trim');
+        $this->form_validation->set_rules('facebook', 'Facebook', 'trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('user');
+        } else {
+            $data = [
+                'twitter' => $this->input->post('twitter'),
+                'instagram' => $this->input->post('instagram'),
+                'facebook' => $this->input->post('facebook'),
+            ];
+
+            $this->m_user->edit_medsos($user_id, $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Informasi Telah Diubah!
+              </div>');
+            redirect('user');
+        }
+    }
+
 }

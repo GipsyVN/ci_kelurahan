@@ -14,7 +14,6 @@
         <title>Dashboard Kelurahan</title>
         <style>
             body {
-                font-family: 'Times New Roman', Times, serif;
                 margin: 0;
                 padding: 0;
             }

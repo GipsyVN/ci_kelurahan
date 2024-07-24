@@ -3,7 +3,7 @@
 
     <!-- Page Heading -->
     <!-- Buat Konten Disini -->
-    <h1 class="h3 mb-4 text-gray-800"><?php echo $title ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">PROFILE</h1>
     <div class="row">
         <div class="col-lg-6">
             <?= $this->session->flashdata('message'); ?>
@@ -38,7 +38,7 @@
                                         <path
                                             d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                                         </path>
-                                    </svg>Twitter</h6>
+                                    </svg>Twitter/X</h6>
                                 <span class="text-secondary">@bootdey</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -61,6 +61,10 @@
                                         </path>
                                     </svg>Facebook</h6>
                                 <span class="text-secondary">bootdey</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <a href="" class="btn btn-primary mb-3" data-toggle="modal"
+                                    data-target="#exampleModal">Edit</a>
                             </li>
                         </ul>
                     </div>
@@ -122,3 +126,37 @@
 
 </div>
 <!-- End of Main Content -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Akun Sosmed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?php echo base_url('user/edit_medsos') ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="twitter">Twitter/X</label>
+                        <input type="text" class="form-control" id="twitter" name="twitter" placeholder="@goodday">
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" class="form-control" id="facebook" name="facebook" placeholder="goodday">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="text" class="form-control" id="instagram" name="instagram" placeholder="goodday">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
