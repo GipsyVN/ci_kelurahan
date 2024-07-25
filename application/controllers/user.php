@@ -16,9 +16,10 @@ class User extends CI_Controller
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
         $user_id = $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_id');
         $data['title'] = 'My Profile';
         $data['role'] = $this->m_user->get_role_name($role_id);
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
         $data['medsos'] = $this->m_user->get_medsos($user_id);
 
@@ -33,12 +34,16 @@ class User extends CI_Controller
     {
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
+        $user_id = $this->session->userdata('user_id');
         $data['title'] = 'Edit Profile';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim', [
             'required' => 'Nama Lengkap Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'is_unique' => 'Email ini sudah dugunakan!'
         ]);
 
         if ($this->form_validation->run() == false) {
@@ -51,11 +56,10 @@ class User extends CI_Controller
             $name = $this->input->post('name');
             $email = $this->input->post('email');
 
-            //cek gambar
             $upload = $_FILES['image']['name'];
             if ($upload) {
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                $config['max_size'] = '2048';
+                $config['max_size'] = '10240';
                 $config['upload_path'] = './assets/img/profile/';
 
                 $this->load->library('upload', $config);
@@ -74,7 +78,11 @@ class User extends CI_Controller
                 }
             }
 
-            $this->m_user->edit($name, $email);
+            $data = [
+                'name' => $name,
+                'email' => $email
+            ];
+            $this->m_user->edit($user_id, $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Profil telah diupdate!
           </div>');
@@ -86,20 +94,23 @@ class User extends CI_Controller
     {
         $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
+        $user_id = $this->session->userdata('user_id');
         $data['title'] = 'Ubah Password';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('current_password', "Current Password", 'required|trim', [
             'required' => 'Bagian ini diperlukan!'
         ]);
-        $this->form_validation->set_rules('new_password1', "New Password", 'required|trim|min_length[3]|matches[new_password2]', [
+        $this->form_validation->set_rules('new_password1', "New Password", 'required|trim|min_length[8]|matches[new_password2]', [
             'matches' => "'Ulangi Password Baru' tidak cocok dengan 'Password Baru'",
-            'required' => 'Bagian ini diperlukan!'
+            'required' => 'Bagian ini diperlukan!',
+            'min_length' => 'Password harus minimal 8 karakter'
         ]);
-        $this->form_validation->set_rules('new_password2', "Confirm New Password", 'required|trim|min_length[3]|matches[new_password1]', [
+        $this->form_validation->set_rules('new_password2', "Confirm New Password", 'required|trim|min_length[8]|matches[new_password1]', [
             'matches' => "'Ulangi Password Baru' tidak cocok dengan 'Password Baru'",
-            'required' => 'Bagian ini diperlukan!'
+            'required' => 'Bagian ini diperlukan!',
+            'min_length' => 'Password harus minimal 8 karakter'
         ]);
 
         if ($this->form_validation->run() == false) {

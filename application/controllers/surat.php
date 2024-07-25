@@ -14,10 +14,10 @@ class Surat extends CI_Controller
     public function index()
     {
         $this->load->model('m_surat');
-        $email = $this->session->userdata('email');
+        $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
         $data['title'] = 'Cetak Surat';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
         $data['surat'] = $this->m_surat->get_surat($role_id);
 
@@ -35,10 +35,10 @@ class Surat extends CI_Controller
 
     public function formSurat($surat_id)
     {
-        $email = $this->session->userdata('email');
+        $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
         $data['title'] = 'Cetak Surat';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         if ($surat_id == 1) {

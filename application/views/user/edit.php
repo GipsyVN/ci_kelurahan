@@ -11,8 +11,7 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email'] ?>"
-                        readonly>
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email'] ?>">
                 </div>
             </div>
             <div class="form-group row">

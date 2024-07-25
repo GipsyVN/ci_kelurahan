@@ -2,16 +2,17 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class M_user extends CI_Model
 {
-    public function get_user($email)
+    public function get_user($user_id)
     {
-        $this->db->where('email', $email);
+        $this->db->where('id', $user_id);
         return $this->db->get('user')->row_array();
     }
 
-    public function edit($name, $email)
+    public function edit($user_id, $data)
     {
-        $this->db->set('name', $name);
-        $this->db->where('email', $email);
+        $this->db->set('name', $data['name']);
+        $this->db->set('email', $data['email']);
+        $this->db->where('id', $user_id);
         $this->db->update('user');
     }
 
@@ -45,5 +46,11 @@ class M_user extends CI_Model
         return $this->db->get('user_role')->row_array();
     }
 
+    public function get_all_user()
+    {
+        $queryMenu = "SELECT `user`.`role_id`, `name`, `email`, `image`, `date_created`, `role` FROM `user` JOIN `user_role` 
+        ON `user`.`role_id` = `user_role`.`id`";
+        return $this->db->query($queryMenu)->result_array();
+    }
 }
 ?>

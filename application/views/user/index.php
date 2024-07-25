@@ -22,8 +22,8 @@
                                     class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4><?= $user['name']; ?></h4>
-                                    <p class="text-secondary mb-1">Full Stack Developer</p>
-                                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                    <p class="text-secondary mb-1">Pegawai</p>
+                                    <p class="text-muted font-size-sm">Kelurahan Nanga Bulik</p>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +113,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <a class="btn btn-info " target="__blank"
-                                        href="<?= base_url('user/edit') ?>">Edit</a>
+                                    <a class="btn btn-info " href="<?= base_url('user/edit') ?>">Edit</a>
                                 </div>
                             </div>
                         </div>

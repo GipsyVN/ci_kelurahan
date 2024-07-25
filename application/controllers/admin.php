@@ -12,10 +12,10 @@ class Admin extends CI_Controller
     }
     public function index()
     {
-        $email = $this->session->userdata('email'); //Wajib ada
         $role_id = $this->session->userdata('role_id'); //Wajib ada
+        $user_id = $this->session->userdata('user_id');
         $data['title'] = 'Dashboard';
-        $data['user'] = $this->m_user->get_user($email); //Wajib ada
+        $data['user'] = $this->m_user->get_user($user_id); //Wajib ada
         $data['menus'] = $this->m_menu->get_menu($role_id); //Wajib ada
 
         $this->load->view('templetes/header', $data);
@@ -28,10 +28,10 @@ class Admin extends CI_Controller
     public function role()
     {
         $this->load->model('m_role'); //Wajib ada
-        $email = $this->session->userdata('email'); //Wajib ada
+        $user_id = $this->session->userdata('user_id'); //Wajib ada
         $role_id = $this->session->userdata('role_id'); //Wajib ada
         $data['title'] = 'Role';
-        $data['user'] = $this->m_user->get_user($email); //Wajib Ada
+        $data['user'] = $this->m_user->get_user($user_id); //Wajib Ada
         $data['menus'] = $this->m_menu->get_menu($role_id); //Wajib ada
         $data['roles'] = $this->m_role->get_role();
 
@@ -45,10 +45,10 @@ class Admin extends CI_Controller
     public function roleAccess($role_id)
     {
         $this->load->model('m_role');
-        $email = $this->session->userdata('email'); //Wajib ada
+        $user_id = $this->session->userdata('user_id'); //Wajib ada
         $roleId = $this->session->userdata('role_id'); //Wajib ada
         $data['title'] = 'Role Access';
-        $data['user'] = $this->m_user->get_user($email); //Wajib ada-
+        $data['user'] = $this->m_user->get_user($user_id); //Wajib ada-
         $data['menus'] = $this->m_menu->get_menu($roleId); //Wajib ada
         $data['menu'] = $this->m_menu->menu(); //Menus != Menu, menus untuk sidebar sedangkan menu untuk content admin/roleaccess
         $data['roles'] = $this->m_role->getRoleAccess($role_id);
@@ -85,16 +85,17 @@ class Admin extends CI_Controller
 
     public function user_manage()
     {
-        $email = $this->session->userdata('email'); //Wajib ada
-        $role_id = $this->session->userdata('role_id'); //Wajib ada
+        $user_id = $this->session->userdata('user_id');
+        $role_id = $this->session->userdata('role_id');
         $data['title'] = 'User';
-        $data['user'] = $this->m_user->get_user($email); //Wajib ada
-        $data['menus'] = $this->m_menu->get_menu($role_id); //Wajib ada
+        $data['user'] = $this->m_user->get_user($user_id); //User yang aktif di session ini
+        $data['users'] = $this->m_user->get_all_user(); //mengambil semua user dari table
+        $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->load->view('templetes/header', $data);
         $this->load->view('templetes/sidebar', $data);
         $this->load->view('templetes/topbar', $data);
-        //$this->load->view('admin/index', $data);
+        $this->load->view('admin/user_manage', $data);
         $this->load->view('templetes/footer');
     }
 }

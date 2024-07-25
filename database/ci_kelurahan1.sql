@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: ci_kelurahan
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	5.5.5-10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 --
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'1234','1234@gmail.com','default.jpg','$2y$10$fU3xAgk0i6zMoe6WrDDeyOG3lfVvJ295TQPJu5iXvKgD2HZVVP/rW',1,1,1715404860),(2,'Hajaja','hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja','trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(4,'Test','kehsos@gmail.com','default.jpg','$2y$10$dpiZzG510OyINQLysJVpu.Xl3s2tHzup6rT5AnJFoYsVPam8pC2Ia',3,1,1716976152),(5,'Pemerintahan','pemerintahan@gmail.com','default.jpg','$2y$10$OGdIqF29.3Qs..mXT/P6tuU0G25GQHivOrbETMvRy/qvpf/l9wsAq',4,1,1716976185);
+INSERT INTO `user` VALUES (1,'1234','1234@gmail.com','cropped-5120-2880-13150931.jpg','$2y$10$ApsskohgaYNsMoooNT2OY..SQMacydSGhvqPvDA6mfP.cqitrjOUu',1,1,1715404860),(2,'Hajaja','hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja','trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(4,'Test','kehsos@gmail.com','default.jpg','$2y$10$dpiZzG510OyINQLysJVpu.Xl3s2tHzup6rT5AnJFoYsVPam8pC2Ia',3,1,1716976152),(5,'Pemerintahan','pemerintahan@gmail.com','default.jpg','$2y$10$OGdIqF29.3Qs..mXT/P6tuU0G25GQHivOrbETMvRy/qvpf/l9wsAq',4,1,1716976185);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 --
@@ -220,4 +220,4 @@ INSERT INTO `user_surat` VALUES (1,'Surat Keterangan Catatan Kepolisian',NULL),(
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-24 17:23:50
+-- Dump completed on 2024-07-25 13:02:17
