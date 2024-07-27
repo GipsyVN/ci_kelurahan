@@ -48,9 +48,23 @@ class M_user extends CI_Model
 
     public function get_all_user()
     {
-        $queryMenu = "SELECT `user`.`role_id`, `name`, `email`, `image`, `date_created`, `role` FROM `user` JOIN `user_role` 
+        $queryMenu = "SELECT `user`.`role_id`, `user`.`id`, `name`, `email`, `image`, `date_created`, `role` FROM `user` JOIN `user_role` 
         ON `user`.`role_id` = `user_role`.`id`";
         return $this->db->query($queryMenu)->result_array();
+    }
+
+    public function hapus_user($user_id)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->delete('user');
+
+        $this->db->where('id_user', $user_id);
+        $query = $this->db->get('user_medsos');
+        if ($query->num_rows() > 0) {
+            // id_user does exist, delete the record
+            $this->db->where('id_user', $user_id);
+            $this->db->delete('user_medsos');
+        }
     }
 }
 ?>

@@ -98,4 +98,13 @@ class Admin extends CI_Controller
         $this->load->view('admin/user_manage', $data);
         $this->load->view('templetes/footer');
     }
+
+    public function hapus_user($user_id)
+    {
+        $this->m_user->hapus_user($user_id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        User Berhasil Dihapus!
+        </div>');
+        redirect('admin/user_manage');
+    }
 }

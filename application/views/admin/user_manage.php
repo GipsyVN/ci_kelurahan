@@ -21,7 +21,7 @@
                     <?php $i = 1; ?>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td style="text-align: center;"><?php echo $i; ?></td>
+                            <td style="text-align: center;"><?php echo $i++; ?></td>
                             <td style="text-align: center;"><?php echo $user['name']; ?></td>
                             <td style="text-align: center;"><?php echo $user['email']; ?></td>
                             <td style="text-align: center;"><?php echo $user['role']; ?></td>
@@ -29,7 +29,8 @@
                                 <a class="btn btn-warning" href="">
                                     <span class="fas fa-edit"></span>
                                 </a>
-                                <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger" href="">
+                                <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger"
+                                    href="<?= base_url('admin/hapus_user/') . $user['id']; ?>">
                                     <span class="fas fa-times"></span>
                                 </a>
                             </td>
