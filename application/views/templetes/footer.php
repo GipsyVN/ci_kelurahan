@@ -54,6 +54,18 @@
     var baseUrl = "<?php echo base_url(); ?>";
 </script>
 <script src="<?= base_url('assets/') ?>js/custom.js"></script>
+<script src="<?= base_url('assets/') ?>js/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable();
+    });
+</script>
+<script src="<?= base_url('assets/') ?>js/chosen.jquery.min.js"></script>
+<script>
+    $(function () {
+        $('.chosen').chosen();
+    });
+</script>
 </body>
 
 </html>
