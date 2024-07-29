@@ -22,22 +22,44 @@
                     <?php foreach ($users as $user): ?>
                         <tr>
                             <td style="text-align: center;"><?php echo $i++; ?></td>
-                            <td style="text-align: center;"><?php echo $user['name']; ?></td>
-                            <td style="text-align: center;"><?php echo $user['email']; ?></td>
-                            <td style="text-align: center;"><?php echo $user['role']; ?></td>
+                            <td style="text-align: center;"><?php echo htmlspecialchars($user['name']); ?></td>
+                            <td style="text-align: center;"><?php echo htmlspecialchars($user['email']); ?></td>
+                            <td style="text-align: center;"><?php echo htmlspecialchars($user['role']); ?></td>
                             <td style="text-align: center;">
                                 <a class="btn btn-warning" href="">
                                     <span class="fas fa-edit"></span>
                                 </a>
-                                <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger"
-                                    href="<?= base_url('admin/hapus_user/') . $user['id']; ?>">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+                                    data-user-id="<?= htmlspecialchars($user['id']); ?>">
                                     <span class="fas fa-times"></span>
-                                </a>
+                                </button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Anda Yakin Menghapus User Ini??
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <a id="confirmDeleteButton" type="button" class="btn btn-danger" href="#">Hapus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

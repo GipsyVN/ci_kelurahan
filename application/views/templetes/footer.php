@@ -66,6 +66,15 @@
         $('.chosen').chosen();
     });
 </script>
+<script>
+    // jQuery to handle modal button click
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var userId = button.data('user-id'); // Extract info from data-* attributes
+        var modal = $(this);
+        modal.find('#confirmDeleteButton').attr('href', '<?= base_url('admin/hapus_user/'); ?>' + userId);
+    });
+</script>
 </body>
 
 </html>
