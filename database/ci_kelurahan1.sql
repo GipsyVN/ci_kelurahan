@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
+  `nip` int(18) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE `user` (
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `user` (
 --
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'1234','1234@gmail.com','cropped-5120-2880-13150931.jpg','$2y$10$ApsskohgaYNsMoooNT2OY..SQMacydSGhvqPvDA6mfP.cqitrjOUu',1,1,1715404860),(2,'Hajaja','hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja','trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(4,'Test','kehsos@gmail.com','default.jpg','$2y$10$dpiZzG510OyINQLysJVpu.Xl3s2tHzup6rT5AnJFoYsVPam8pC2Ia',3,1,1716976152),(5,'Pemerintahan','pemerintahan@gmail.com','default.jpg','$2y$10$OGdIqF29.3Qs..mXT/P6tuU0G25GQHivOrbETMvRy/qvpf/l9wsAq',4,1,1716976185);
+INSERT INTO `user` VALUES (1,'1234',NULL,'1234@gmail.com','cropped-5120-2880-13150931.jpg','$2y$10$ApsskohgaYNsMoooNT2OY..SQMacydSGhvqPvDA6mfP.cqitrjOUu',1,1,1715404860),(2,'Hajaja',NULL,'hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja',NULL,'trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(8,'sigit',12345,'sigit@gmail.com','default.jpg','$2y$10$XAgZR2zE/ShSuIvFqL/tneEm7g4GQ5WT6Uu778t6WRgKiTtK/p4Ra',2,1,1722318704);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 --
@@ -88,6 +89,29 @@ CREATE TABLE `user_access_surat` (
 /*!40000 ALTER TABLE `user_access_surat` DISABLE KEYS */;
 INSERT INTO `user_access_surat` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,3,6),(7,3,7),(8,3,8),(9,3,9),(10,3,10),(11,3,11),(12,3,12),(13,3,13),(14,4,14),(15,4,15),(16,4,16),(17,4,17),(18,4,18);
 /*!40000 ALTER TABLE `user_access_surat` ENABLE KEYS */;
+
+--
+-- Table structure for table `user_lurah`
+--
+
+DROP TABLE IF EXISTS `user_lurah`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_lurah` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(50) NOT NULL,
+  `nip` int(18) NOT NULL,
+  `date_edited` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_lurah`
+--
+
+/*!40000 ALTER TABLE `user_lurah` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_lurah` ENABLE KEYS */;
 
 --
 -- Table structure for table `user_medsos`
@@ -220,4 +244,4 @@ INSERT INTO `user_surat` VALUES (1,'Surat Keterangan Catatan Kepolisian',NULL),(
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-25 13:02:17
+-- Dump completed on 2024-07-30 12:53:16
