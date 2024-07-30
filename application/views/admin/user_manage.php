@@ -5,8 +5,13 @@
     <!-- Buat Konten Disini -->
     <h1 class="h3 mb-4 text-gray-800"><?php echo $title ?></h1>
     <div class="row">
+        <div id="flash-message" class="col-lg-12">
+            <?= $this->session->flashdata('message'); ?>
+        </div>
         <div class="col">
-            <a class="btn btn-primary mb-2" href="">Tambah</a>
+            <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal1">
+                Tambah
+            </button>
             <table class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
@@ -63,8 +68,67 @@
         </div>
     </div>
 
-</div>
-<!-- /.container-fluid -->
+    <!-- Modal Tambah -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel1">Tambah User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?php echo base_url('admin/tambah_user') ?>" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="required-field" for="nama">Nama Lengkap &#42;</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
+                                <?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="nip">NIP</label>
+                                <input type="text" inputmode="numeric" class="form-control" id="nip" name="nip">
+                                <?= form_error('nip', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email &#42;</label>
+                                <input type="text" class="form-control" id="email" name="email">
+                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role &#42;</label>
+                                <select class="custom-select" data-placeholder="Pilih Role" name="role">
+                                    <option value=""></option>
+                                    <option value="1">Administrator</option>
+                                    <option value="2">Trantib</option>
+                                    <option value="3">Kesejahteraan Sosial</option>
+                                    <option value="4">Pemerintahan</option>
+                                </select>
+                                <?= form_error('role', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password &#42;</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="password1">Ulangi Password &#42;</label>
+                                <input type="password" class="form-control" id="password1" name="password1">
+                                <?= form_error('password1', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->

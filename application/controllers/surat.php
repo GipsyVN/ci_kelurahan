@@ -154,10 +154,10 @@ class Surat extends CI_Controller
 
     public function ket_usaha()
     {
-        $email = $this->session->userdata('email');
+        $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
         $data['title'] = 'Cetak Surat';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
@@ -266,10 +266,10 @@ class Surat extends CI_Controller
 
     public function ket_janda_duda()
     {
-        $email = $this->session->userdata('email');
+        $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
         $data['title'] = 'Cetak Surat';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
@@ -339,10 +339,10 @@ class Surat extends CI_Controller
 
     public function ket_rumah()
     {
-        $email = $this->session->userdata('email');
+        $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
         $data['title'] = 'Cetak Surat';
-        $data['user'] = $this->m_user->get_user($email);
+        $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [

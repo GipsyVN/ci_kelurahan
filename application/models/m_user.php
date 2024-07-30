@@ -66,5 +66,10 @@ class M_user extends CI_Model
             $this->db->delete('user_medsos');
         }
     }
+
+    public function tambah_user($data)
+    {
+        $this->db->insert('user', $data);
+    }
 }
 ?>
