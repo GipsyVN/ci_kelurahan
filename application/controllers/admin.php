@@ -138,8 +138,9 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('role', 'Role', 'required', [
             'required' => 'Role Tidak Boleh Kosong!',
         ]);
-        $this->form_validation->set_rules('nama', 'Nama', 'trim|max_length[18]', [
-            'min_length' => 'NIP Maksimal 18 Karakter!',
+        $this->form_validation->set_rules('nip', 'NIP', 'trim|max_length[18]|is_unique[user.nip]', [
+            'mix_length' => 'NIP Maksimal 18 Karakter!',
+            'is_unique' => 'NIP ini sudah terdaftar!'
         ]);
 
         if ($this->form_validation->run() == false) {
@@ -169,6 +170,44 @@ class Admin extends CI_Controller
             User Berhasil Ditambahkan!
             </div>');
             redirect('admin/user_manage');
+        }
+    }
+
+    public function user_detail($profile_id)
+    {
+        $user_id = $this->session->userdata('user_id');
+        $role_id = $this->session->userdata('role_id');
+        $data['title'] = 'User Profile';
+        $data['user'] = $this->m_user->get_user($user_id); //User yang aktif di session ini
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['users'] = $this->m_user->get_sp_user($profile_id); // mengambil detail user yang dipilih
+
+        $this->load->view('templetes/header', $data);
+        $this->load->view('templetes/sidebar', $data);
+        $this->load->view('templetes/topbar', $data);
+        $this->load->view('admin/user_detail', $data);
+        $this->load->view('templetes/footer');
+    }
+
+    public function update_role_user($user_id)
+    {
+        $this->form_validation->set_rules('role', 'Role', 'required', [
+            'required' => 'Role Tidak Boleh Kosong!',
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+            Role Tidak Boleh Kosong!
+            </div>');
+            redirect('admin/user_detail/' . $user_id);
+        } else {
+            $new_role = $this->input->post('role');
+            $this->m_user->update_user_role($user_id, $new_role);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Role Berhasil Diubah!
+            </div>');
+            redirect('admin/user_detail/' . $user_id);
         }
     }
 }

@@ -5,7 +5,7 @@
     <!-- Buat Konten Disini -->
     <h1 class="h3 mb-4 text-gray-800">PROFILE</h1>
     <div class="row">
-        <div id="flash-message" class="col-lg-6">
+        <div id="flash-message" class="col">
             <?= $this->session->flashdata('message'); ?>
         </div>
 

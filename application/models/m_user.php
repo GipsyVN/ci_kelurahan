@@ -53,6 +53,13 @@ class M_user extends CI_Model
         return $this->db->query($queryMenu)->result_array();
     }
 
+    public function get_sp_user($user_id)
+    {
+        $queryMenu = "SELECT `user`.`role_id`, `user`.`nip` , `user`.`id`, `name`, `email`, `image`, `date_created`, `role` FROM `user` JOIN `user_role` 
+        ON `user`.`role_id` = `user_role`.`id` WHERE `user`.`id` = '$user_id'";
+        return $this->db->query($queryMenu)->row_array();
+    }
+
     public function hapus_user($user_id)
     {
         $this->db->where('id', $user_id);
@@ -70,6 +77,13 @@ class M_user extends CI_Model
     public function tambah_user($data)
     {
         $this->db->insert('user', $data);
+    }
+
+    public function update_user_role($user_id, $role_id)
+    {
+        $this->db->set('role_id', $role_id);
+        $this->db->where('id', $user_id);
+        $this->db->update('user');
     }
 }
 ?>

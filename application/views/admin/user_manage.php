@@ -31,7 +31,7 @@
                             <td style="text-align: center;"><?php echo htmlspecialchars($user['email']); ?></td>
                             <td style="text-align: center;"><?php echo htmlspecialchars($user['role']); ?></td>
                             <td style="text-align: center;">
-                                <a class="btn btn-warning" href="">
+                                <a class="btn btn-warning" href="<?= base_url('admin/user_detail/') . $user['id'] ?>">
                                     <span class="fas fa-edit"></span>
                                 </a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
