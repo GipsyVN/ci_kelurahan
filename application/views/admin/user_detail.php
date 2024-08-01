@@ -124,7 +124,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?php //echo base_url('admin/update_role_user/') . $users['id'] ?>" method="post">
+                <form action="<?php echo base_url('admin/update_password_user/') . $users['id'] ?>" method="post">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="password">Password Baru &#42;</label>

@@ -210,4 +210,62 @@ class Admin extends CI_Controller
             redirect('admin/user_detail/' . $user_id);
         }
     }
+
+    public function update_password_user($profile_id)
+    {
+        $admin_id = $this->session->userdata('user_id');
+        $role_id = $this->session->userdata('role_id');
+        $data['title'] = 'User Profile';
+        $data['user'] = $this->m_user->get_user($admin_id); //admin yang aktif di session ini
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['users'] = $this->m_user->get_sp_user($profile_id); // mengambil detail user yang dipilih
+
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[password1]', [
+            'matches' => 'Password Baru Tidak Cocok!',
+            'required' => 'Password Tidak Boleh Kosong!',
+            'min_length' => 'Password Baru Minimal 8 Karakter!',
+        ]);
+        $this->form_validation->set_rules('password1', 'New Password', 'required|trim|min_length[8]|matches[password]', [
+            'matches' => 'Password Baru Tidak Cocok!',
+            'min_length' => 'Password Baru Minimal 8 Karakter!',
+            'required' => 'Bagian ini Tidak Boleh Kosong!',
+        ]);
+        $this->form_validation->set_rules('password_admin', 'Password Admin', 'required|trim', [
+            'min_length' => 'Password Anda Minimal 8 Karakter!',
+            'required' => 'Bagian ini Tidak Boleh Kosong!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+            Input tidak valid!
+            </div>');
+            $this->load->view('templetes/header', $data);
+            $this->load->view('templetes/sidebar', $data);
+            $this->load->view('templetes/topbar', $data);
+            $this->load->view('admin/user_detail', $data);
+            $this->load->view('templetes/footer');
+        } else {
+            $new_password = $this->input->post('password');
+            $password_admin = $this->input->post('password_admin');
+            $admin = $this->m_user->get_user($admin_id);
+
+            if ($admin && password_verify($password_admin, $admin['password'])) {
+                // Password is correct
+                $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                $this->m_user->update_user_password($profile_id, $password_hash);
+                // Redirect or load success view
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Password Berhasil Direset!
+                </div>');
+                redirect('admin/user_detail/' . $profile_id);
+            } else {
+                // Invalid credential
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Kredensial Admin Tidak Cocok!
+                </div>');
+                redirect('admin/user_detail/' . $profile_id);
+            }
+
+        }
+    }
 }

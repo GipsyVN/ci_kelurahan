@@ -85,5 +85,12 @@ class M_user extends CI_Model
         $this->db->where('id', $user_id);
         $this->db->update('user');
     }
+
+    public function update_user_password($profile_id, $new_password)
+    {
+        $this->db->set('password', $new_password);
+        $this->db->where('id', $profile_id);
+        $this->db->update('user');
+    }
 }
 ?>
