@@ -30,7 +30,19 @@ class Surat extends CI_Controller
 
     public function arsip()
     {
-        echo "Ini adalah menu arsip";
+        $this->load->model('m_surat');
+        $user_id = $this->session->userdata('user_id');
+        $role_id = $this->session->userdata('role_id');
+        $data['title'] = 'Cetak Surat';
+        $data['user'] = $this->m_user->get_user($user_id);
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['surat'] = $this->m_surat->get_surat($role_id);
+
+        $this->load->view('templetes/header', $data);
+        $this->load->view('templetes/sidebar', $data);
+        $this->load->view('templetes/topbar', $data);
+        $this->load->view('surat/arsip', $data);
+        $this->load->view('templetes/footer');
     }
 
     public function formSurat($surat_id)
@@ -166,12 +178,12 @@ class Surat extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Nama Pemohon Tidak Boleh Kosong'
         ]);
-        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
-        //     'required' => 'NIK Tidak Boleh Kosong',
-        //     'min_length' => 'NIK Minimal 16 Digit',
-        //     'max_length' => 'NIK Maximal 16 Digit',
-        //     'numeric' => 'NIK Harus Berupa Angka'
-        // ]);
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
+            'required' => 'NIK Tidak Boleh Kosong',
+            'min_length' => 'NIK Minimal 16 Digit',
+            'max_length' => 'NIK Maximal 16 Digit',
+            'numeric' => 'NIK Harus Berupa Angka'
+        ]);
         $this->form_validation->set_rules('tem_lahir', 'Tempat Lahir', 'required|trim', [
             'required' => 'Tempat Lahir Tidak Boleh Kosong'
         ]);
@@ -335,6 +347,71 @@ class Surat extends CI_Controller
             $this->load->view('surat/template/sk_janda_duda', $data);
         }
 
+    }
+
+    public function arsip_janda_duda()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $role_id = $this->session->userdata('role_id');
+        $data['title'] = 'Cetak Surat';
+        $data['user'] = $this->m_user->get_user($user_id);
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+
+        $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
+            'required' => 'Nomor Surat Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
+            'required' => 'Nama Pemohon Tidak Boleh Kosong'
+        ]);
+        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
+        //     'required' => 'NIK Tidak Boleh Kosong',
+        //     'min_length' => 'NIK Minimal 16 Digit',
+        //     'max_length' => 'NIK Maximal 16 Digit',
+        //     'numeric' => 'NIK Harus Berupa Angka'
+        // ]);
+        $this->form_validation->set_rules('tem_lahir', 'Tempat Lahir', 'required|trim', [
+            'required' => 'Tempat Lahir Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('tang_lahir', 'Tanggal Lahir', 'required|trim', [
+            'required' => 'Tanggal Lahir Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('j_kelamin', 'Jenis Kelamin', 'required', [
+            'required' => 'Jenis Kelamin Harus Dipilih'
+        ]);
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|trim', [
+            'required' => 'Pekerjaan Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
+            'required' => 'Alamat Tempat Tinggal Tidak Boleh Kosong'
+        ]);
+        $this->form_validation->set_rules('no_akta', 'Nomor Akta', 'required|trim', [
+            'required' => 'Nomor Akta Tidak Boleh Kosong'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templetes/header', $data);
+            $this->load->view('templetes/sidebar', $data);
+            $this->load->view('templetes/topbar', $data);
+            $this->load->view('surat/form/f_sk_janda_duda');
+            $this->load->view('templetes/footer');
+        } else {
+            $tanggal_lahir = $this->input->post('tang_lahir');
+            $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
+
+            $data = [
+                'no_surat' => $this->input->post('noSurat'),
+                'nama' => $this->input->post('nama'),
+                'nik' => $this->input->post('nik'),
+                'tempat_lahir' => $this->input->post('tem_lahir'),
+                'tanggal_lahir' => $formatted_tanggal_lahir,
+                'jenis_kelamin' => $this->input->post('j_kelamin'),
+                'pekerjaan' => $this->input->post('pekerjaan'),
+                'alamat_tempat_tinggal' => $this->input->post('alamat'),
+                'no_akta' => $this->input->post('no_akta'),
+            ];
+
+            $this->load->view('surat/template/sk_janda_duda', $data);
+        }
     }
 
     public function ket_rumah()
