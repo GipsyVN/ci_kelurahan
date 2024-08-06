@@ -94,6 +94,9 @@
 
         .table-ket td {
             border: none;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            vertical-align: top;
         }
 
         .right-align {
@@ -103,6 +106,13 @@
         .bold-underline {
             font-weight: bold;
             text-decoration: underline;
+        }
+
+        .tablepem {
+            border-collapse: collapse;
+            width: 100%;
+            border-bottom: none;
+            table-layout: fixed;
         }
 
         @media print {
@@ -148,38 +158,40 @@
             Bulik Kabupaten Lamandau dengan ini menerangkan bahwa:
         <p>
 
-        <table class="table-ket" style="font-size: 18px;">
-            <tr>
-                <td style="width: 250px;">Nama</td>
-                <td style="width: 10px;">:</td>
-                <td style="width: auto;"><?= $nama ?></td>
-            </tr>
-            <tr>
-                <td>NIK</td>
-                <td>:</td>
-                <td><?= $nik ?></td>
-            </tr>
-            <tr>
-                <td>Tempat dan Tanggal Lahir</td>
-                <td>:</td>
-                <td><?= $tempat_lahir . ", " . $tanggal_lahir ?></td>
-            </tr>
-            <tr>
-                <td>Jenis Kelamin</td>
-                <td>:</td>
-                <td><?= $jenis_kelamin ?></td>
-            </tr>
-            <tr>
-                <td>Pekerjaan</td>
-                <td>:</td>
-                <td><?= $pekerjaan ?></td>
-            </tr>
-            <tr>
-                <td>Alamat Tempat Tinggal</td>
-                <td>:</td>
-                <td><?= $alamat_tempat_tinggal ?></td>
-            </tr>
-        </table>
+        <div class="tablepem">
+            <table class="table-ket" style="font-size: 18px;">
+                <tr>
+                    <td style="width: 250px;">Nama</td>
+                    <td style="width: 10px;">:</td>
+                    <td style="width: auto;"><?= $nama ?></td>
+                </tr>
+                <tr>
+                    <td>NIK</td>
+                    <td>:</td>
+                    <td><?= $nik ?></td>
+                </tr>
+                <tr>
+                    <td>Tempat dan Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><?= $tempat_lahir . ", " . $tanggal_lahir ?></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><?= $jenis_kelamin ?></td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan</td>
+                    <td>:</td>
+                    <td><?= $pekerjaan ?></td>
+                </tr>
+                <tr>
+                    <td>Alamat Tempat Tinggal</td>
+                    <td>:</td>
+                    <td style="max-width: 0;"><?= $alamat_tempat_tinggal ?></td>
+                </tr>
+            </table>
+        </div>
         <p style="text-align: justify; font-size: 18px;">Bahwa berdasarkan dari pengakuan nama tersebut diatas selaku
             pemilik <?= $nama_usaha; ?>, dengan alamat
             seperti tercantum diatas mengatakan bahwa usaha yang selama ini dijalankan sudah tutup/tidak beroperasi

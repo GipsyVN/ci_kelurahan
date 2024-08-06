@@ -94,6 +94,9 @@
 
         .table-ket td {
             border: none;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            vertical-align: top;
         }
 
         .right-align {
@@ -105,7 +108,14 @@
             text-decoration: underline;
         }
 
-        @media print {
+        .tablepem {
+            border-collapse: collapse;
+            width: 100%;
+            border-bottom: none;
+            table-layout: fixed;
+        }
+
+        . @media print {
             @page {
                 size: A4 portrait landscape;
             }
@@ -146,43 +156,46 @@
         <p style="text-align: justify; font-size: 18px;">Yang bertanda tangan dibawah ini Lurah Nanga Bulik Kecamatan
             Bulik Kabupaten Lamandau dengan ini menerangkan bahwa: </p>
         <p>
-        <table class="table-ket" style="font-size: 18px;">
-            <tr>
-                <td style="width: 250px;">Nama</td>
-                <td style="width: 10px;">:</td>
-                <td style="width: auto;"><?= $nama ?></td>
-            </tr>
-            <tr>
-                <td>NIK</td>
-                <td>:</td>
-                <td><?= $nik ?></td>
-            </tr>
-            <tr>
-                <td>Tempat dan Tanggal Lahir</td>
-                <td>:</td>
-                <td><?= $tempat_lahir . ", " . $tanggal_lahir ?></td>
-            </tr>
-            <tr>
-                <td>Jenis Kelamin</td>
-                <td>:</td>
-                <td><?= $jenis_kelamin ?></td>
-            </tr>
-            <tr>
-                <td>Pekerjaan</td>
-                <td>:</td>
-                <td><?= $pekerjaan ?></td>
-            </tr>
-            <tr>
-                <td>Alamat Tempat Tinggal</td>
-                <td>:</td>
-                <td><?= $alamat_tempat_tinggal ?></td>
-            </tr>
-        </table>
+
+        <div class="tablepem">
+            <table class="table-ket" style="font-size: 18px;">
+                <tr>
+                    <td style="width: 250px;">Nama</td>
+                    <td style="width: 10px;">:</td>
+                    <td style="width: auto;"><?= $nama ?></td>
+                </tr>
+                <tr>
+                    <td>NIK</td>
+                    <td>:</td>
+                    <td><?= $nik ?></td>
+                </tr>
+                <tr>
+                    <td>Tempat dan Tanggal Lahir</td>
+                    <td>:</td>
+                    <td><?= $tempat_lahir . ", " . $tanggal_lahir ?></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>:</td>
+                    <td><?= $jenis_kelamin ?></td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan</td>
+                    <td>:</td>
+                    <td><?= $pekerjaan ?></td>
+                </tr>
+                <tr>
+                    <td>Alamat Tempat Tinggal</td>
+                    <td>:</td>
+                    <td style="max-width: 0;"><?= $alamat_tempat_tinggal ?></td>
+                </tr>
+            </table>
+        </div>
         <p style="text-align: justify; font-size: 18px;">Berdasarkan kutipan Akta Kematian Dari Dinas Kependudukan dan
             Pencatatan Sipil Nomor : <?= $no_akta ?>.
             Bahwa Nama tersebut diatas memang benar sekarang sudah berstatus <b><i><?= $ket ?></i></b> ( Cerai Mati ).
         </p>
-        <p style="text-align: justify; font-size: 18px;">Demikian Surat Kete rangan ini dibuat untuk dapat dipergunakan
+        <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan
             sebagaimana
             mestinya.</p>
 
