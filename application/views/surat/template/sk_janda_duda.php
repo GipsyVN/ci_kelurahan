@@ -99,8 +99,8 @@
             vertical-align: top;
         }
 
-        .right-align {
-            text-align: right;
+        .left-align {
+            text-align: left;
         }
 
         .bold-underline {
@@ -200,9 +200,9 @@
             mestinya.</p>
 
         <br><br>
-        <table class="table-ket right-align" style="font-size: 18px;">
+        <table class="table-ket left-align" style="font-size: 18px;">
             <tr>
-                <td></td>
+                <td style="width: 450px;"></td>
                 <td>Nanga Bulik, <?= format_tanggal() ?></td>
                 <td></td>
             </tr>

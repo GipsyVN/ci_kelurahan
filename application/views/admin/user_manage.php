@@ -92,6 +92,12 @@
                                 <?= form_error('nip', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
                             <div class="form-group">
+                                <label for="gol">Pangkat/Golongan</label>
+                                <input type="text" class="form-control" id="gol" name="gol"
+                                    placeholder="contoh:Penata (III/c)">
+                                <?= form_error('gol', '<small class="text-danger pl-3">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email &#42;</label>
                                 <input type="text" class="form-control" id="email" name="email">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>

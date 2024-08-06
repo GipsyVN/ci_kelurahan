@@ -157,6 +157,7 @@ class Admin extends CI_Controller
                 'id' => '',
                 'name' => $this->input->post('nama'),
                 'nip' => $this->input->post('nip'),
+                'golongan' => $this->input->post('gol'),
                 'email' => $this->input->post('email'),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
