@@ -51,6 +51,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
   `nip` int(18) DEFAULT NULL,
+  `golongan` varchar(10) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
   `image` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
@@ -66,7 +67,7 @@ CREATE TABLE `user` (
 --
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'1234',NULL,'1234@gmail.com','cropped-5120-2880-13150931.jpg','$2y$10$ApsskohgaYNsMoooNT2OY..SQMacydSGhvqPvDA6mfP.cqitrjOUu',1,1,1715404860),(2,'Hajaja',NULL,'hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja',NULL,'trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(8,'sigit',12345,'sigit@gmail.com','default.jpg','$2y$10$XAgZR2zE/ShSuIvFqL/tneEm7g4GQ5WT6Uu778t6WRgKiTtK/p4Ra',2,1,1722318704);
+INSERT INTO `user` VALUES (1,'1234',NULL,NULL,'1234@gmail.com','cropped-5120-2880-13150931.jpg','$2y$10$ApsskohgaYNsMoooNT2OY..SQMacydSGhvqPvDA6mfP.cqitrjOUu',1,1,1715404860),(2,'Hajaja',NULL,NULL,'hahaja1029@gmail.com','default.jpg','$2y$10$EgQxnGLxLlCSV2XqLTRhTu1RHJ6DgxGVVFkUD3WDqrqa0O8oA3FKi',2,1,1715408088),(3,'Hahaja',NULL,NULL,'trantib@gmail.com','default.jpg','$2y$10$/X4qYRxb91hyLFMvM2wjBOWQ.7weIxUyum9pcmloDPFLFOevXsb2q',2,1,1716962608),(8,'sigit',12345,NULL,'sigit@gmail.com','default.jpg','$2y$10$XAgZR2zE/ShSuIvFqL/tneEm7g4GQ5WT6Uu778t6WRgKiTtK/p4Ra',2,1,1722318704);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 --
@@ -125,10 +126,11 @@ DROP TABLE IF EXISTS `user_lurah`;
 CREATE TABLE `user_lurah` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
-  `nip` int(18) NOT NULL,
+  `nip` varchar(25) NOT NULL,
+  `golongan` varchar(10) DEFAULT NULL,
   `date_edited` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,6 +138,7 @@ CREATE TABLE `user_lurah` (
 --
 
 /*!40000 ALTER TABLE `user_lurah` DISABLE KEYS */;
+INSERT INTO `user_lurah` VALUES (1,'SARIPUDIN, S.IP','19820625 200604 1 009','III/c',1234545345);
 /*!40000 ALTER TABLE `user_lurah` ENABLE KEYS */;
 
 --
@@ -269,4 +272,4 @@ INSERT INTO `user_surat` VALUES (1,'Surat Keterangan Catatan Kepolisian',NULL),(
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-06 12:14:46
+-- Dump completed on 2024-08-06 12:57:16

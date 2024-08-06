@@ -92,5 +92,10 @@ class M_user extends CI_Model
         $this->db->where('id', $profile_id);
         $this->db->update('user');
     }
+
+    public function lurah()
+    {
+        return $this->db->get('user_lurah')->row_array();
+    }
 }
 ?>

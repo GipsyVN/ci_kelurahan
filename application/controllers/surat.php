@@ -283,6 +283,7 @@ class Surat extends CI_Controller
         $data['title'] = 'Cetak Surat';
         $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['lurah'] = $this->m_user->lurah();
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
             'required' => 'Nomor Surat Tidak Boleh Kosong!'
@@ -290,12 +291,12 @@ class Surat extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
             'required' => 'Nama Pemohon Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
-            'required' => 'NIK Tidak Boleh Kosong!',
-            'min_length' => 'NIK Minimal 16 Digit!',
-            'max_length' => 'NIK Maximal 16 Digit!',
-            'numeric' => 'NIK Harus Berupa Angka!'
-        ]);
+        // $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
+        //     'required' => 'NIK Tidak Boleh Kosong!',
+        //     'min_length' => 'NIK Minimal 16 Digit!',
+        //     'max_length' => 'NIK Maximal 16 Digit!',
+        //     'numeric' => 'NIK Harus Berupa Angka!'
+        // ]);
         $this->form_validation->set_rules('tem_lahir', 'Tempat Lahir', 'required|trim', [
             'required' => 'Tempat Lahir Tidak Boleh Kosong!'
         ]);
@@ -341,7 +342,10 @@ class Surat extends CI_Controller
                 'pekerjaan' => $this->input->post('pekerjaan'),
                 'alamat_tempat_tinggal' => $this->input->post('alamat'),
                 'no_akta' => $this->input->post('no_akta'),
-                'ket' => $ket
+                'ket' => $ket,
+                'lurah' => $data['lurah']['nama'],
+                'nip' => $data['lurah']['nip'],
+                'gol' => $data['lurah']['golongan'],
             ];
 
             $this->load->view('surat/template/sk_janda_duda', $data);
@@ -356,6 +360,7 @@ class Surat extends CI_Controller
         $data['title'] = 'Cetak Surat';
         $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['lurah'] = $this->m_user->lurah();
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
             'required' => 'Nomor Surat Tidak Boleh Kosong!'
