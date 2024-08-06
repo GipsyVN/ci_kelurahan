@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `arsip_surat`
+--
+
+DROP TABLE IF EXISTS `arsip_surat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `arsip_surat` (
+  `id` int(11) NOT NULL,
+  `nomor_surat` varchar(50) NOT NULL,
+  `nama_surat` varchar(50) NOT NULL,
+  `pemohon` varchar(50) NOT NULL,
+  `pembuat` varchar(50) NOT NULL,
+  `tanggal_surat` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `arsip_surat`
+--
+
+/*!40000 ALTER TABLE `arsip_surat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `arsip_surat` ENABLE KEYS */;
+
+--
 -- Table structure for table `user`
 --
 
@@ -244,4 +269,4 @@ INSERT INTO `user_surat` VALUES (1,'Surat Keterangan Catatan Kepolisian',NULL),(
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-30 12:53:16
+-- Dump completed on 2024-08-06 12:14:46
