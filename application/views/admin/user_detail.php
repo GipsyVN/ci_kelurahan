@@ -52,7 +52,7 @@
                             <h6 class="mb-0">Akun Dibuat</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <?= date('d F Y', $users['date_created']) ?>
+                            <?= format_tanggal_profile(date('Y-m-d', $users['date_created'])) ?>
                         </div>
                     </div>
                     <hr>

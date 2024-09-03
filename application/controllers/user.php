@@ -12,8 +12,6 @@ class User extends CI_Controller
     }
     public function index()
     {
-
-        $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
         $user_id = $this->session->userdata('user_id');
         $user_id = $this->session->userdata('user_id');
@@ -32,7 +30,7 @@ class User extends CI_Controller
 
     public function edit()
     {
-        $email = $this->session->userdata('email');
+        // $email = $this->session->userdata('email');
         $role_id = $this->session->userdata('role_id');
         $user_id = $this->session->userdata('user_id');
         $data['title'] = 'Edit Profile';
@@ -40,10 +38,11 @@ class User extends CI_Controller
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim', [
-            'required' => 'Nama Lengkap Tidak Boleh Kosong'
+            'required' => 'Nama Lengkap Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-            'is_unique' => 'Email ini sudah dugunakan!'
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
+            'required' => 'Nama Lengkap Tidak Boleh Kosong!',
+            'valid' => 'Email Tidak Valid!'
         ]);
 
         if ($this->form_validation->run() == false) {

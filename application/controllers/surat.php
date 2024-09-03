@@ -427,33 +427,8 @@ class Surat extends CI_Controller
         $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
 
-        //validasi Umum
-        $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
-            'required' => 'Nomor Surat Tidak Boleh Kosong'
-        ]);
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
-            'required' => 'Nama Pemohon Tidak Boleh Kosong'
-        ]);
-        $this->form_validation->set_rules('tem_lahir', 'Tempat Lahir', 'required|trim', [
-            'required' => 'Tempat Lahir Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('tang_lahir', 'Tanggal Lahir', 'required|trim', [
-            'required' => 'Tanggal Lahir Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('j_kelamin', 'Jenis Kelamin', 'required', [
-            'required' => 'Jenis Kelamin Harus Dipilih!'
-        ]);
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|trim', [
-            'required' => 'Pekerjaan Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
-            'required' => 'Alamat Tempat Tinggal Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('no_akta', 'Nomor Akta', 'required|trim', [
-            'required' => 'Nomor Akta Tidak Boleh Kosong!'
-        ]);
+        //@TODO: validasi khusus tiap surat
 
-        //validasi khusus @TODO: coming soon
         $this->form_validation->set_rules('nik', 'NIK', 'required|trim|min_length[16]|max_length[16]|numeric', [
             'required' => 'NIK Tidak Boleh Kosong!',
             'min_length' => 'NIK Minimal 16 Digit!',

@@ -21,7 +21,7 @@
                                     <div class="mt-3">
                                         <h4><?= $user['name']; ?></h4>
                                         <p class="text-secondary mb-1">Pegawai</p>
-                                        <p class="text-muted font-size-sm">Kelurahan Nanga Bulik</p>
+                                        <p class="text-muted font-size-sm">Politeknik Lamandau</p>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                         <h6 class="mb-0">Akun Dibuat</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?= date('d F Y', $user['date_created']) ?>
+                                        <?= format_tanggal_profile(date('Y-m-d', $user['date_created'])) ?>
                                     </div>
                                 </div>
                                 <hr>
