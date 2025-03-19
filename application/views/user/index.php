@@ -21,7 +21,7 @@
                                     <div class="mt-3">
                                         <h4><?= $user['name']; ?></h4>
                                         <p class="text-secondary mb-1">Pegawai</p>
-                                        <p class="text-muted font-size-sm">Politeknik Lamandau</p>
+                                        <p class="text-muted font-size-sm">Kelurahan Nanga Bulik</p>
                                     </div>
                                 </div>
                             </div>
