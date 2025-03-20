@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2025 at 06:16 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Mar 20, 2025 at 11:05 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -91,8 +91,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (16, 3, 3),
 (17, 4, 2),
 (18, 4, 3),
-(22, 1, 2),
-(25, 1, 3);
+(25, 1, 3),
+(26, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -233,8 +233,8 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
-(2, 3, 'My Profile', 'user', 'fas fa-fw fa-user', 1),
+(1, 3, 'Dashboard', 'user', 'fas fa-fw fa-tachometer-alt', 1),
+(2, 3, 'My Profile', 'user/profile', 'fas fa-fw fa-user', 1),
 (3, 3, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
 (5, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (6, 3, 'Ubah Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
@@ -356,7 +356,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_access_surat`
