@@ -178,7 +178,7 @@ class Admin extends CI_Controller
     {
         $user_id = $this->session->userdata('user_id');
         $role_id = $this->session->userdata('role_id');
-        $data['title'] = 'User Profile';
+        $data['title'] = 'User';
         $data['user'] = $this->m_user->get_user($user_id); //User yang aktif di session ini
         $data['menus'] = $this->m_menu->get_menu($role_id);
         $data['users'] = $this->m_user->get_sp_user($profile_id); // mengambil detail user yang dipilih
