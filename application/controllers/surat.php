@@ -171,6 +171,7 @@ class Surat extends CI_Controller
         $data['title'] = 'Cetak Surat';
         $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['lurah'] = $this->m_user->lurah();
 
         $this->form_validation->set_rules('noSurat', 'No Surat', 'required|trim', [
             'required' => 'Nomor Surat Tidak Boleh Kosong!'
@@ -234,7 +235,7 @@ class Surat extends CI_Controller
                 $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
                 $tanggal_surat = $this->input->post('tang_surat');
                 $formatted_tanggal_surat = $this->__format_tanggal($tanggal_surat);
-
+                $lurah = $data['lurah'];
 
                 $data = [
                     'no_surat' => $this->input->post('noSurat'),
@@ -250,6 +251,9 @@ class Surat extends CI_Controller
                     'tanggal_surat' => $formatted_tanggal_surat,
                     'jenis_usaha' => $this->input->post('j_usaha'),
                     'alamat_usaha' => $this->input->post('a_usaha'),
+                    'lurah' => $lurah['nama'],
+                    'nip' => $lurah['nip'],
+                    'gol' => $lurah['golongan'],
                 ];
 
                 $this->load->view('surat/template/sk_usaha', $data);
@@ -257,6 +261,7 @@ class Surat extends CI_Controller
             } else if ($this->input->post('status') == 'Tidak Beroperasi') {
                 $tanggal_lahir = $this->input->post('tang_lahir');
                 $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
+                $lurah = $data['lurah'];
 
                 $data = [
                     'no_surat' => $this->input->post('noSurat'),
@@ -269,6 +274,9 @@ class Surat extends CI_Controller
                     'alamat_tempat_tinggal' => $this->input->post('alamat'),
                     'status_usaha' => $this->input->post('status'),
                     'nama_usaha' => $this->input->post('namaUsaha'),
+                    'lurah' => $lurah['nama'],
+                    'nip' => $lurah['nip'],
+                    'gol' => $lurah['golongan'],
                 ];
 
                 $this->load->view('surat/template/sk_usaha_ta', $data);
@@ -401,6 +409,7 @@ class Surat extends CI_Controller
             $formatted_tanggal_lahir = $this->__format_tanggal($tanggal_lahir);
             $tanggal_surat = $this->input->post('tang_surat');
             $formatted_tanggal_surat = $this->__format_tanggal($tanggal_surat);
+            $lurah = $data['lurah'];
 
             $data = [
                 'no_surat' => $this->input->post('noSurat'),
@@ -412,6 +421,9 @@ class Surat extends CI_Controller
                 'pekerjaan' => $this->input->post('pekerjaan'),
                 'alamat_tempat_tinggal' => $this->input->post('alamat'),
                 'no_rt' => $this->input->post('noSuratRT'),
+                'lurah' => $lurah['nama'],
+                'nip' => $lurah['nip'],
+                'gol' => $lurah['golongan'],
                 'tanggal_surat' => $formatted_tanggal_surat
             ];
 

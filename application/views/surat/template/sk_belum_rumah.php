@@ -155,7 +155,6 @@
         <p class="no_spasi" style="text-align: center; font-size: 18px;">Nomor: <?= $no_surat ?></p>
         <p style="text-align: justify; font-size: 18px;">Yang bertanda tangan dibawah ini Lurah Nanga Bulik Kecamatan
             Bulik Kabupaten Lamandau dengan ini menerangkan bahwa: </p>
-        <p>
         <div class="tablepem">
 
             <table class="table-ket" style="font-size: 18px;">
@@ -195,7 +194,8 @@
             Tanggal <?= $tanggal_surat ?> yang menerangkan bahwa nama
             tersebut diatas sampai saat ini <b><i>belum memiliki rumah atau tempat tinggal sendiri.</i></b>
         </p>
-        <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan
+        <p style="text-align: justify; font-size: 18px;">Demikian Surat Keterangan ini dibuat untuk dapat
+            dipergunakan
             sebagaimana
             mestinya.</p>
 
@@ -218,12 +218,12 @@
             </tr>
             <tr>
                 <td></td>
-                <td class="bold-underline">[Input Nama Lurah]</td>
+                <td class="bold-underline"><?= $lurah ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td></td>
-                <td>NIP. [Input NIP Lurah]</td>
+                <td>NIP. <?= $nip ?></td>
                 <td></td>
             </tr>
         </table>

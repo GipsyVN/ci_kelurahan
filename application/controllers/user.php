@@ -15,7 +15,7 @@ class User extends CI_Controller
         $role_id = $this->session->userdata('role_id');
         $user_id = $this->session->userdata('user_id');
         $user_id = $this->session->userdata('user_id');
-        $data['title'] = 'My Profile';
+        $data['title'] = 'Dashboard';
         $data['role'] = $this->m_user->get_role_name($role_id);
         $data['user'] = $this->m_user->get_user($user_id);
         $data['menus'] = $this->m_menu->get_menu($role_id);
@@ -25,6 +25,24 @@ class User extends CI_Controller
         $this->load->view('templetes/sidebar', $data);
         $this->load->view('templetes/topbar', $data);
         $this->load->view('user/index', $data);
+        $this->load->view('templetes/footer');
+    }
+
+    public function profile()
+    {
+        $role_id = $this->session->userdata('role_id');
+        $user_id = $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_id');
+        $data['title'] = 'My Profile';
+        $data['role'] = $this->m_user->get_role_name($role_id);
+        $data['user'] = $this->m_user->get_user($user_id);
+        $data['menus'] = $this->m_menu->get_menu($role_id);
+        $data['medsos'] = $this->m_user->get_medsos($user_id);
+
+        $this->load->view('templetes/header', $data);
+        $this->load->view('templetes/sidebar', $data);
+        $this->load->view('templetes/topbar', $data);
+        $this->load->view('user/profile', $data);
         $this->load->view('templetes/footer');
     }
 

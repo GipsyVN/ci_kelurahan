@@ -21,7 +21,7 @@ class Admin extends CI_Controller
         $this->load->view('templetes/header', $data);
         $this->load->view('templetes/sidebar', $data);
         $this->load->view('templetes/topbar', $data);
-        $this->load->view('admin/index', $data);
+        $this->load->view('user/index', $data);
         $this->load->view('templetes/footer');
     }
 

@@ -219,12 +219,12 @@
             </tr>
             <tr>
                 <td></td>
-                <td class="bold-underline">[Input Nama Lurah]</td>
+                <td class="bold-underline"><?= $lurah ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td></td>
-                <td>NIP. [Input NIP Lurah]</td>
+                <td>NIP. <?= $nip ?></td>
                 <td></td>
             </tr>
         </table>
